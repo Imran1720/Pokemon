@@ -2,7 +2,7 @@
 
 using namespace std;
 
-enum PokemonNames
+enum class PokemonNames
 {
     Charmander,
     Bulbasaur,
@@ -15,7 +15,7 @@ int main()
 
     string pokemonTrainer_Name;
    // string pokemonName;
-    PokemonNames selectedPokemon = InvalidChoice;
+    PokemonNames selectedPokemon = PokemonNames::InvalidChoice;
 
     system("cls");
     //DISPLAYING THE TITLE POKEMON
@@ -69,30 +69,30 @@ int main()
     // Step 4: Confirm the Choice
     switch (pokemonChoosed)
     {
-        case 1: selectedPokemon = Charmander;
+        case 1: selectedPokemon = PokemonNames::Charmander;
                 cout << "\nYou chose Charmander! A fiery choice." << endl;
 
                 break;
 
-        case 2: selectedPokemon = Bulbasaur;
+        case 2: selectedPokemon = PokemonNames::Bulbasaur;
                 cout << "\nYou chose Bulbasaur! A wise choice." << endl;
                 break;
 
-        case 3: selectedPokemon = Squirtle;
+        case 3: selectedPokemon = PokemonNames::Squirtle;
                 cout << "\nYou chose Squirtle! A cool choice." << endl;
                 break;
 
         default: cout << "Professor Oak : Hmm, that doesn't seem right. " << endl;
                  cout << "Professor Oak : Let me choose for you..."<<endl;
 
-                selectedPokemon = Charmander;
+                selectedPokemon = PokemonNames::Charmander;
 
                  cout << "Professor Oak : Just kidding! Let's go with Charmander, the surprise guest!" << endl;
                  break;
     }
 
     //DISPLAYING PROFESSOR OAK'S FINAL WORDS
-    cout << "Professor Oak : " << (selectedPokemon == Charmander ? "Charmandar" : (selectedPokemon == Bulbasaur) ? "Bulbasaur" : "Squirtle")
+    cout << "Professor Oak : " << (selectedPokemon == PokemonNames::Charmander? "Charmandar" : (selectedPokemon == PokemonNames::Bulbasaur) ? "Bulbasaur" : "Squirtle")
         << " and you, "<<pokemonTrainer_Name << ", are going to be the best of friends!"<<endl;
 
     cout << "Professor Oak : That's it, young Trainer!" << endl;
