@@ -2,11 +2,20 @@
 
 using namespace std;
 
+enum PokemonNames
+{
+    Charmander,
+    Bulbasaur,
+    Squirtle,
+    InvalidChoice
+};
+
 int main()
 {
 
     string pokemonTrainer_Name;
-    string pokemonName;
+   // string pokemonName;
+    PokemonNames selectedPokemon = InvalidChoice;
 
     system("cls");
     //DISPLAYING THE TITLE POKEMON
@@ -60,31 +69,39 @@ int main()
     // Step 4: Confirm the Choice
     switch (pokemonChoosed)
     {
-        case 1: pokemonName = "Bulbasaur";
+        case 1: selectedPokemon = Charmander;
+                cout << "\nYou chose Charmander! A fiery choice." << endl;
+
+                break;
+
+        case 2: selectedPokemon = Bulbasaur;
                 cout << "\nYou chose Bulbasaur! A wise choice." << endl;
                 break;
 
-        case 2: pokemonName = "Charmander";
-                cout << "\nYou chose Charmander! A fiery choice." << endl;
-                break;
-
-        case 3: pokemonName = "Squirtle";
+        case 3: selectedPokemon = Squirtle;
                 cout << "\nYou chose Squirtle! A cool choice." << endl;
                 break;
 
         default: cout << "Professor Oak : Hmm, that doesn't seem right. " << endl;
                  cout << "Professor Oak : Let me choose for you..."<<endl;
 
-                 pokemonName = "Pikachu";
+                selectedPokemon = Charmander;
 
-                 cout << "Professor Oak : Just kidding! Let's go with Pikachu, the surprise guest!" << endl;
+                 cout << "Professor Oak : Just kidding! Let's go with Charmander, the surprise guest!" << endl;
                  break;
     }
 
     //DISPLAYING PROFESSOR OAK'S FINAL WORDS
-    cout << "Professor Oak : " << pokemonName << " and you, "<<pokemonTrainer_Name 
-        << ", are going to be the best of friends!"<<endl;
-    cout << "Professor Oak : Your journey begins now! Get ready to explore the vast world of Pokemon!"<<endl;
+    cout << "Professor Oak : " << (selectedPokemon == Charmander ? "Charmandar" : (selectedPokemon == Bulbasaur) ? "Bulbasaur" : "Squirtle")
+        << " and you, "<<pokemonTrainer_Name << ", are going to be the best of friends!"<<endl;
+
+    cout << "Professor Oak : That's it, young Trainer!" << endl;
+
+    cout << "Professor Oak : You've made your choice." << endl;
+
+    cout << "Professor Oak : Now, take your first step into the vast world of Pokemon..." << endl;
+
+    cout << "Professor Oak : Who knows what mysteries await you?" << endl;
 	
 
 	return 0;
