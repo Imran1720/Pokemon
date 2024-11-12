@@ -26,6 +26,9 @@ class Pokemon
 
         Pokemon()
         {
+            pokemonName = "Pikachu";
+            typeOfPokemon = PokemonType::Electric;
+            health = 10;
         }
 
         Pokemon(string _name, PokemonType _type, int _heatlh)
@@ -33,6 +36,13 @@ class Pokemon
             pokemonName = _name;
             typeOfPokemon = _type;
             health=_heatlh;
+        }
+
+        Pokemon(const Pokemon& _pokemon)
+        {
+            pokemonName = _pokemon.pokemonName;
+            typeOfPokemon = _pokemon.typeOfPokemon;
+            health = _pokemon.health;
         }
 
         void Attack()
@@ -48,9 +58,27 @@ class Player
         string playerName;
         Pokemon pokemonChoosen;
 
-        void SelectPokemon(int choice)
+        Player()
         {
-            switch ((PokemonNames)choice)
+            playerName = "Trainer";
+            pokemonChoosen = Pokemon();
+        }
+
+        Player(string p_name,Pokemon _pokemonChoosen)
+        {
+            playerName = p_name;
+            pokemonChoosen = _pokemonChoosen;
+        }
+
+        Player(const Player& _player)
+        {
+            playerName = _player.playerName;
+            pokemonChoosen = _player.pokemonChoosen;
+        }
+
+        void SelectPokemon(int _choice)
+        {
+            switch ((PokemonNames)_choice)
             {
             case PokemonNames::Charmander : 
                     pokemonChoosen = Pokemon("Charmander", PokemonType::Fire,100);
@@ -81,19 +109,19 @@ class ProfessorOak
         
         string name;
 
-        Oak_Introduction(Player& player)
+        Oak_Introduction(Player& _player)
         {
             cout << "Professor " << name << " : Hello there! Welcome to the world of Pokemon!" << endl;
             cout << "Professor " << name << " : My name is Oak. People call me the Pokemon Professor!" << endl;
             cout << "Professor " << name << " : But enough about me. Let's talk about you!" << endl;
             cout << "Professor " << name << " : First, tell me, what's your name?" << endl;
 
-            cin >> player.playerName;
+            cin >> _player.playerName;
         }
 
-        Oak_PokemonOffer(Player& player)
+        Oak_PokemonOffer(Player& _player)
         {
-            cout << "\nProfessor " << name  << " :  Ah, " << player.playerName << "! What a fantastic name!" << endl;
+            cout << "\nProfessor " << name  << " :  Ah, " << _player.playerName << "! What a fantastic name!" << endl;
 
             cout << "Professor " << name  << " : You must be eager to start your adventure." << endl;
             cout << "Professor " << name  << " : But first, you'll need a Pokemon of your own!" << endl;
@@ -113,27 +141,27 @@ class ProfessorOak
             cout << "\nEnter the number of your choice: ";
 
             cin >> pokemonChoosed;
-            player.SelectPokemon(pokemonChoosed);
+            _player.SelectPokemon(pokemonChoosed);
 
             switch ((PokemonNames)pokemonChoosed)
             {
                 case PokemonNames::Charmander : 
-                    cout << "\nProfessor " << name << " : A fiery choice! " << player.pokemonChoosen.pokemonName << " is yours! " << endl;
-                    cout << "Professor " << name << " : " << player.pokemonChoosen.pokemonName << " and you, " << player.playerName << ", are going to be the best of friends! " << endl;
+                    cout << "\nProfessor " << name << " : A fiery choice! " << _player.pokemonChoosen.pokemonName << " is yours! " << endl;
+                    cout << "Professor " << name << " : " << _player.pokemonChoosen.pokemonName << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
                     break;
                 case PokemonNames::Bulbasaur :
-                    cout << "\nProfessor " << name << " : A grassy choice! " << player.pokemonChoosen.pokemonName << " is yours! " << endl;
-                    cout << "Professor " << name << " : " << player.pokemonChoosen.pokemonName << " and you, " << player.playerName << ", are going to be the best of friends! " << endl;
+                    cout << "\nProfessor " << name << " : A grassy choice! " << _player.pokemonChoosen.pokemonName << " is yours! " << endl;
+                    cout << "Professor " << name << " : " << _player.pokemonChoosen.pokemonName << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
                     break;
                 case PokemonNames::Squirtle:
-                    cout << "\nProfessor " << name << " : A watery choice! " << player.pokemonChoosen.pokemonName << " is yours! " << endl;
-                    cout << "Professor " << name << " : " << player.pokemonChoosen.pokemonName << " and you, " << player.playerName << ", are going to be the best of friends! " << endl;
+                    cout << "\nProfessor " << name << " : A watery choice! " << _player.pokemonChoosen.pokemonName << " is yours! " << endl;
+                    cout << "Professor " << name << " : " << _player.pokemonChoosen.pokemonName << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
                     break;
                 default : 
                     cout << "\nProfessor " << name << " : Hmm, that doesn't seem right. " << endl;
                     cout << "Professor " << name << " : Let me choose for you..." << endl;
-                    cout << "Professor " << name << " : Just kidding! Let's go with " << player.pokemonChoosen.pokemonName << ", the surprise guest!" << endl;
-                    cout << "Professor " << name << " : " << player.pokemonChoosen.pokemonName << " and you, " << player.playerName << ", are going to be the best of friends! " << endl;
+                    cout << "Professor " << name << " : Just kidding! Let's go with " << _player.pokemonChoosen.pokemonName << ", the surprise guest!" << endl;
+                    cout << "Professor " << name << " : " << _player.pokemonChoosen.pokemonName << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
                     break;
             }
 
