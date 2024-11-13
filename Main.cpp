@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 using namespace std;
 
@@ -9,6 +10,7 @@ void ClearScreen()
 
 void PlayerWaitResponse()
 {
+    
     cin.get();
 }
 
@@ -132,6 +134,7 @@ class ProfessorOak
             cout << "Professor " << name << " : First, tell me, what's your name?" << endl;
 
             cin >> _player.playerName;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             ClearScreen();
         }
 
@@ -145,7 +148,7 @@ class ProfessorOak
             PlayerWaitResponse();
 
             // Presenting Pokemon choices
-            cout << "\nProfessor " << name << " : I have three Pokemon here with me." << endl;
+            cout << "Professor " << name << " : I have three Pokemon here with me." << endl;
             cout << "Professor " << name << " : They're all quite feisty!" << endl;
             cout << "Professor " << name << " : Choose wisely..." << endl;
 
@@ -162,11 +165,11 @@ class ProfessorOak
             cout << "\nEnter the number of your choice: ";
 
             cin >> pokemonChoosed;
-
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             
             _player.SelectPokemon(pokemonChoosed);
 
-            PlayerWaitResponse();
+           
             ClearScreen();
 
             switch ((PokemonNames)pokemonChoosed)
@@ -190,16 +193,17 @@ class ProfessorOak
                     cout << "Professor " << name << " : " << _player.pokemonChoosen.pokemonName << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
                     break;
             }
+            PlayerWaitResponse();
 
         }
 
         void ExplainMainQuest(Player& _player)
         {
-            PlayerWaitResponse();
+            
             ClearScreen();
             cout << "\nProfessor " << name << " : Oak-ay "<< _player.playerName <<", I am about to explain you about your upcoming grand adventure." << endl;
             cout << "Professor " << name << " : You see, becoming a Pokemon Master is no easy feat. It takes courage, wisdom, and a bit of luck." << endl;
-            cout << "Professor " << name << " : Your mission, should you choose to accept it (and trust me, you really don't have a choice) is to\n\t\t collect all the Pokemon Badges and conquer the Pokemon League. \n" << endl;
+            cout << "Professor " << name << " : Your mission, should you choose to accept it (and trust me, you really don't have a choice) is to\n\t\t collect all the Pokemon Badges and conquer the Pokemon League. " << endl;
             
             PlayerWaitResponse();
             
@@ -235,6 +239,57 @@ class ProfessorOak
         
 };
 
+void GameLoop(Player& _player)
+{
+    int adventureChoice;
+    bool isGameRunning = true;
+
+    while (isGameRunning)
+    {
+        PlayerWaitResponse();
+        ClearScreen();
+
+        cout << _player.playerName << "!, What would you like to do next " << endl;
+
+        cout << "1. Battle Wild Pokemon" << endl;
+        cout << "2. Visit PokeCenter" << endl;
+        cout << "3. Challenge Gyms" << endl;
+        cout << "4. Enter Pokémon League" << endl;
+        cout << "5. Quit" << endl;
+
+        cin >> adventureChoice;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        switch (adventureChoice)
+        {
+            case 1: cout << "\n You look around... but all the wild Pokemon are on vacation.Maybe try again later ?"<< endl;
+                break;
+            case 2: cout << "\nYou head to the PokeCenter, but Nurse Joy is out on a coffee break. Guess your Pokemon will have to tough it out for now!" << endl;
+                break;
+            case 3: cout << "\nYou march up to the Gym, but it's closed for renovations. Seems like even Gym Leaders need a break!" << endl;
+                break;
+            case 4: cout << "\nYou boldly step towards the Pokemon League... but the gatekeeper laughs and says, 'Maybe next time, champ!" << endl;
+                break;
+            case 5: cout << "\nYou try to quit, but Professor Oak's voice echoes: 'There's no quitting in Pokemon training!" << endl;
+                    cout << "Are you sure you want to quit?(y/n):";
+                    
+                    char decesion;
+                    cin >> decesion;
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    if (decesion == 'y' || decesion == 'Y')
+                    {
+                        isGameRunning = false;
+                    }
+                break;
+            default: cout << "Invalid choice. Try again!" << endl;
+        }
+
+
+        
+    }
+
+    cout << "Thanks for playing the game " << _player.playerName << endl;
+}
 
 int main()
 {
@@ -255,7 +310,8 @@ int main()
     //Main Quest explaination
     professor.ExplainMainQuest(player);
 
-    cout << "Game loop start's here" << endl;
+    //Game Loop starts here
+    GameLoop(player);
 
 	return 0;
 }
