@@ -1,6 +1,9 @@
 #include <iostream>
 #include <limits>
 
+#include "PokemonType.hpp"
+#include "PokemonNames.hpp"
+
 using namespace std;
 
 void ClearScreen()
@@ -14,20 +17,8 @@ void PlayerWaitResponse()
     cin.get();
 }
 
-enum class PokemonNames
-{
-    Charmander=1,
-    Bulbasaur,
-    Squirtle,
-    Pikachu
-};
 
-enum class PokemonType {
-    Fire =1,
-    Water,
-    Electric,
-    Grass
-};
+
 
 class Pokemon
 {
@@ -294,11 +285,11 @@ void GameLoop(Player& _player)
 int main()
 {
 
-    Pokemon playerPokemon("Charmander",PokemonType::Fire,100);
-    
+    Pokemon playerPokemon("Charmander", PokemonType::Fire, 100);
+
     ProfessorOak professor("Oak");
 
-    Player player("Imran",playerPokemon);
+    Player player("Imran", playerPokemon);
 
 
     //professor oak introduction
@@ -313,5 +304,5 @@ int main()
     //Game Loop starts here
     GameLoop(player);
 
-	return 0;
-#include "header.hpp"
+    return 0;
+}
