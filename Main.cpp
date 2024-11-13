@@ -314,4 +314,4 @@ int main()
     GameLoop(player);
 
 	return 0;
-}
+#include "header.hpp"
