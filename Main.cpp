@@ -1,24 +1,11 @@
-#include <iostream>
-#include <limits>
-
 #include "PokemonType.hpp"
 #include "PokemonNames.hpp"
+#include "Utility.hpp"
+
+#include <iostream>
+#include <string>
 
 using namespace std;
-
-void ClearScreen()
-{
-    system("cls");
-}
-
-void PlayerWaitResponse()
-{
-    
-    cin.get();
-}
-
-
-
 
 class Pokemon
 {
@@ -125,8 +112,8 @@ class ProfessorOak
             cout << "Professor " << name << " : First, tell me, what's your name?" << endl;
 
             cin >> _player.playerName;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            ClearScreen();
+            Utility::clearInputBuffer();
+            Utility::ClearScreen();
         }
 
         void Oak_PokemonOffer(Player& _player)
@@ -136,15 +123,15 @@ class ProfessorOak
             cout << "Professor " << name  << " : But first, you'll need a Pokemon of your own!" << endl;
 
             
-            PlayerWaitResponse();
+            Utility::PlayerWaitResponse();
 
             // Presenting Pokemon choices
             cout << "Professor " << name << " : I have three Pokemon here with me." << endl;
             cout << "Professor " << name << " : They're all quite feisty!" << endl;
             cout << "Professor " << name << " : Choose wisely..." << endl;
 
-            PlayerWaitResponse();
-            ClearScreen();
+            Utility::PlayerWaitResponse();
+            Utility::ClearScreen();
             cout << "1. Charmander - The fire type. A real hothead!" << endl;
             cout << "2. Bulbasaur - The grass type. Calm and collected!" << endl;
             cout << "3. Squirtle - The water type. Cool as a cucumber!" << endl;
@@ -156,12 +143,13 @@ class ProfessorOak
             cout << "\nEnter the number of your choice: ";
 
             cin >> pokemonChoosed;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            Utility::clearInputBuffer();
+
             
             _player.SelectPokemon(pokemonChoosed);
 
            
-            ClearScreen();
+            Utility::ClearScreen();
 
             switch ((PokemonNames)pokemonChoosed)
             {
@@ -184,45 +172,45 @@ class ProfessorOak
                     cout << "Professor " << name << " : " << _player.pokemonChoosen.pokemonName << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
                     break;
             }
-            PlayerWaitResponse();
+            Utility::PlayerWaitResponse();
 
         }
 
         void ExplainMainQuest(Player& _player)
         {
             
-            ClearScreen();
+            Utility::ClearScreen();
             cout << "\nProfessor " << name << " : Oak-ay "<< _player.playerName <<", I am about to explain you about your upcoming grand adventure." << endl;
             cout << "Professor " << name << " : You see, becoming a Pokemon Master is no easy feat. It takes courage, wisdom, and a bit of luck." << endl;
             cout << "Professor " << name << " : Your mission, should you choose to accept it (and trust me, you really don't have a choice) is to\n\t\t collect all the Pokemon Badges and conquer the Pokemon League. " << endl;
             
-            PlayerWaitResponse();
+            Utility::PlayerWaitResponse();
             
             cout << _player.playerName << " : Wait... that sounds a lot like every other Pokemon game out there.\n" << endl;
             
-            PlayerWaitResponse();
-            ClearScreen();
+            Utility::PlayerWaitResponse();
+            Utility::ClearScreen();
             
             cout << "\nProfessor " << name << " : Shhh! Don't break the fourth wall"<< _player.playerName << " !This is serious business." << endl;
             cout << "Professor " << name << " : To achieve this, you'll need to battle wild Pokemon, challenge gym leaders, and of course, \n\t\tkeep your Pokemon healthy at the PokeCenter.\n" << endl;
             cout << "Professor " << name << " : Along the way, you'll capture new Pokemon to strengthen your team. Just remember—there's a \n\t\tlimit to how many Pokemon you can carry, so choose wisely!\n" << endl;
             
-            PlayerWaitResponse();
+            Utility::PlayerWaitResponse();
             
             cout << _player.playerName << " : Sounds like a walk in the park... right?" << endl;
             
-            PlayerWaitResponse();
-            ClearScreen();
+            Utility::PlayerWaitResponse();
+            Utility::ClearScreen();
             
             cout << "\nProfessor " << name << " : Hah! That's what they all say! But beware, young Trainer, the path to victory is fraught \n\t\twith challenges. And if you lose a battle... well, let's just say you'll be starting from square one.\n" << endl;
             cout << "Professor " << name << " : So, what do you say? Are you ready to become the next Pokemon Champion?\n" << endl;
             
-            PlayerWaitResponse();
+            Utility::PlayerWaitResponse();
             
             cout << _player.playerName << " : Ready as I'll ever be, Professor!" << endl;
             
-            PlayerWaitResponse();
-            ClearScreen();
+            Utility::PlayerWaitResponse();
+            Utility::ClearScreen();
             
             cout << "\nProfessor " << name << " :  Thats's the spirit! Now, your journey begins." << endl;
             cout << "Professor " << name << " : But first... let's just pretend I didn't forget to set up the actual game loop... Ahem, onwards!" << endl;
@@ -237,8 +225,8 @@ void GameLoop(Player& _player)
 
     while (isGameRunning)
     {
-        PlayerWaitResponse();
-        ClearScreen();
+        Utility::PlayerWaitResponse();
+        Utility::ClearScreen();
 
         cout << _player.playerName << "!, What would you like to do next " << endl;
 
@@ -249,7 +237,7 @@ void GameLoop(Player& _player)
         cout << "5. Quit" << endl;
 
         cin >> adventureChoice;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        Utility::clearInputBuffer();
 
         switch (adventureChoice)
         {
@@ -266,7 +254,8 @@ void GameLoop(Player& _player)
                     
                     char decesion;
                     cin >> decesion;
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    Utility::clearInputBuffer();
+
                     if (decesion == 'y' || decesion == 'Y')
                     {
                         isGameRunning = false;
