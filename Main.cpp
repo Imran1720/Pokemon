@@ -10,23 +10,12 @@ using namespace std;
 
 class Pokemon
 {
-    public:
-        string pokemonName;
-        PokemonType typeOfPokemon;
-        int health;
-
-        Pokemon()
-        {
-            pokemonName = "Pikachu";
-            typeOfPokemon = PokemonType::Electric;
-            health = 10;
-        }
 
         Pokemon(string _name, PokemonType _type, int _heatlh)
         {
             pokemonName = _name;
             typeOfPokemon = _type;
-            health=_heatlh;
+            health = _heatlh;
         }
 
         Pokemon(const Pokemon& _pokemon)
