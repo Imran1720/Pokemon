@@ -1,12 +1,15 @@
 #include <string>
 
-enum class PokemonType;
+#include "PokemonType.hpp"
+using namespace std;
 
 class Pokemon
 {
 public:
     string pokemonName;
+
     PokemonType typeOfPokemon;
+
     int health;
 
     Pokemon();
