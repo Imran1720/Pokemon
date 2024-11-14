@@ -1,9 +1,10 @@
 #include "PokemonType.hpp"
 #include "PokemonNames.hpp"
 #include "Utility.hpp"
+#include "Player.hpp"
 
 #include <iostream>
-#include <string>
+#include <string>   
 
 using namespace std;
 
@@ -42,6 +43,7 @@ class Pokemon
 
 };
 
+/*
 class Player
 {
     public:
@@ -58,7 +60,9 @@ class Player
         {
             playerName = p_name;
             pokemonChoosen = _pokemonChoosen;
-        }
+
+            
+            }
 
         Player(const Player& _player)
         {
@@ -76,7 +80,15 @@ class Player
 
             case PokemonNames::Bulbasaur : 
                     pokemonChoosen = Pokemon("Bulbasaur", PokemonType::Grass, 100);
-                    break;
+
+
+           
+           
+           
+           
+           
+           
+      break;
 
             case PokemonNames::Squirtle : 
                     pokemonChoosen = Pokemon("Squirtle", PokemonType::Water, 100);
@@ -91,7 +103,7 @@ class Player
         }
 
 };
-
+*/
 
 class ProfessorOak
 {
