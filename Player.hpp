@@ -1,5 +1,5 @@
 #include <string>
-#include "Pokemon.hpp"
+class Pokemon;
 
 using namespace std;
 

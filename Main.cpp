@@ -1,3 +1,5 @@
+#include "Player.hpp"
+#include "Pokemon.hpp"
 #include "PokemonType.hpp"
 #include "PokemonNames.hpp"
 #include "Utility.hpp"
@@ -8,41 +10,7 @@
 
 using namespace std;
 
-class Pokemon
-{
-public:
-    string pokemonName;
-    PokemonType typeOfPokemon;
-    int health;
 
-        Pokemon()
-        {
-            pokemonName = "Pikachu";
-            typeOfPokemon = PokemonType::Electric;
-            health = 10;
-        }
-        Pokemon(string _name, PokemonType _type, int _heatlh)
-        {
-            pokemonName = _name;
-            typeOfPokemon = _type;
-            health = _heatlh;
-        }
-
-        Pokemon(const Pokemon& _pokemon)
-        {
-            pokemonName = _pokemon.pokemonName;
-            typeOfPokemon = _pokemon.typeOfPokemon;
-            health = _pokemon.health;
-        }
-
-        void Attack()
-        {
-            cout << pokemonName << " attacks with a powerful move!" << endl;
-        }
-
-};
-
-#include "Player.hpp"
 
 
 class ProfessorOak
