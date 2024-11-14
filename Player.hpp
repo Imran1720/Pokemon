@@ -1,7 +1,5 @@
 #include <string>
-#include "PokemonType.hpp"
-#include "PokemonNames.hpp"
-#include "Utility.hpp"
+
 
 using namespace std;
 
