@@ -47,13 +47,19 @@ void Game::GameLoop(Player& _player)
         {
         case 1:
             {
-            WildEncounterManager encounterManager;
-            Pokemon encounteredPokemon = encounterManager.GetRandomPokemonFromGrass(forestGrass);
-            cout << "A wild " << encounteredPokemon.pokemonName << " appeared!!" << endl;
-            break;
+                WildEncounterManager encounterManager;
+                Pokemon encounteredPokemon = encounterManager.GetRandomPokemonFromGrass(forestGrass);
+                cout << "A wild " << encounteredPokemon.pokemonName << " appeared!!" << endl;
+                break;
             }
-        case 2: cout << "\nYou head to the PokeCenter, but Nurse Joy is out on a coffee break. Guess your Pokemon will have to tough it out for now!" << endl;
-            break;
+        case 2:
+            {
+                cout << "You head to Pokecenter" << endl;
+                _player.pokemonChoosen.Heal();
+                cout << _player.pokemonChoosen.pokemonName << "'s health is fully restored" << endl;
+                break;
+                break;
+            }
         case 3: cout << "\nYou march up to the Gym, but it's closed for renovations. Seems like even Gym Leaders need a break!" << endl;
             break;
         case 4: cout << "\nYou boldly step towards the Pokemon League... but the gatekeeper laughs and says, 'Maybe next time, champ!" << endl;

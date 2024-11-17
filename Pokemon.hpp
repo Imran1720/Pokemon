@@ -10,6 +10,7 @@ public:
     string pokemonName;
     PokemonType typeOfPokemon;
     int health,maxHealth;
+    int attackPower;
 
     
 
@@ -21,5 +22,6 @@ public:
     void TakeDamage(int _damage);
     void Battle(Pokemon& _playerPokemon, Pokemon& _wildPokemon);
     bool IsFainted();
+    void Heal();
 };
 

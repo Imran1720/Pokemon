@@ -28,8 +28,9 @@ Pokemon::Pokemon(const Pokemon& _pokemon)
 
 void Pokemon::Attack(Pokemon& _target)
 {
-    int damage = 10;
+    int damage = attackPower;
     cout << pokemonName << " attacks " << _target.pokemonName << " for " << damage << " damage!" << endl;
+    _target.TakeDamage(damage);
 }
 
 void Pokemon::TakeDamage(int _damage)
@@ -66,6 +67,11 @@ void Pokemon::Battle(Pokemon& _playerPokemon, Pokemon& _wildPokemon)
 
 bool Pokemon::IsFainted()
 {
-    health <= 0 ? return true : return false;
+    return health <= 0 ?  true : false;
+}
+
+void Pokemon::Heal()
+{
+    health = maxHealth;
 }
 
