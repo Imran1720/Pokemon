@@ -1,5 +1,6 @@
 #include "Game.hpp"
 #include "Player.hpp"
+#include "BattleManager.hpp"
 #include "PokemonType.hpp"
 #include "Utility.hpp"
 #include "WildEncounterManager.hpp"
@@ -13,9 +14,9 @@ Game::Game()
     forestGrass = {
         "Forest",
         {
-            Pokemon("Pidgey",PokemonType::Normal,40),
-            Pokemon("Caterpie",PokemonType::Grass,35),
-            Pokemon("Zubat",PokemonType::Poision,30)
+            Pokemon("Pidgey",PokemonType::Normal,40,8),
+            Pokemon("Caterpie",PokemonType::Grass,35,9),
+            Pokemon("Zubat",PokemonType::Poision,30,11)
         },
         70
     };
@@ -23,9 +24,10 @@ Game::Game()
 
 void Game::GameLoop(Player& _player)
 {
-	
+    BattleManager battleManager;
     int adventureChoice;
     bool isGameRunning = true;
+
 
     while (isGameRunning)
     {
@@ -49,7 +51,9 @@ void Game::GameLoop(Player& _player)
             {
                 WildEncounterManager encounterManager;
                 Pokemon encounteredPokemon = encounterManager.GetRandomPokemonFromGrass(forestGrass);
-                cout << "A wild " << encounteredPokemon.pokemonName << " appeared!!" << endl;
+                
+                battleManager.StartBattle(_player, encounteredPokemon);
+
                 break;
             }
         case 2:

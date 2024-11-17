@@ -10,13 +10,15 @@ Pokemon::Pokemon()
     pokemonName = "Pikachu";
     typeOfPokemon = PokemonType::Electric;
     health = 10;
+    attackPower = 12;
 }
 
-Pokemon::Pokemon(string _name, PokemonType _type, int _heatlh)
+Pokemon::Pokemon(string _name, PokemonType _type, int _heatlh,int _attackPower)
 {
     pokemonName = _name;
     typeOfPokemon = _type;
     health = _heatlh;
+    attackPower = _attackPower;
 }
 
 Pokemon::Pokemon(const Pokemon& _pokemon)
@@ -24,6 +26,7 @@ Pokemon::Pokemon(const Pokemon& _pokemon)
     pokemonName = _pokemon.pokemonName;
     typeOfPokemon = _pokemon.typeOfPokemon;
     health = _pokemon.health;
+    attackPower = _pokemon.attackPower;
 }
 
 void Pokemon::Attack(Pokemon& _target)
@@ -39,29 +42,6 @@ void Pokemon::TakeDamage(int _damage)
     if (health < 0)
     {
         health = 0;
-    }
-}
-
-void Pokemon::Battle(Pokemon& _playerPokemon, Pokemon& _wildPokemon)
-{
-    cout << "A wild " << _wildPokemon.pokemonName << " appeared!!" << endl;
-
-    while (!_playerPokemon.IsFainted() && !_wildPokemon.IsFainted())
-    {
-        _playerPokemon.Attack(_wildPokemon);
-        if (!_wildPokemon.IsFainted())
-        {
-            _wildPokemon.Attack(_playerPokemon);
-        }
-    }
-
-    if (_playerPokemon.IsFainted())
-    {
-        cout << _playerPokemon.pokemonName << " has fainted! You lose the battle." << endl;
-    }
-    else
-    {
-        cout<<"You defeated the wild " << _wildPokemon.pokemonName << "!" << endl;
     }
 }
 
