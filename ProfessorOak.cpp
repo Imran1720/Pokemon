@@ -1,4 +1,5 @@
 #include "ProfessorOak.hpp"
+#include "Player.hpp"
 #include "Utility.hpp"
 #include "PokemonNames.hpp"
 #include <iostream>

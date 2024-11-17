@@ -1,5 +1,7 @@
-#include "Grass.hpp"
 #include <vector>
+
+struct Grass;
+class Pokemon;
 
 using namespace std;
 

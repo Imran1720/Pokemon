@@ -1,4 +1,5 @@
 #include "Pokemon.hpp"
+#include "PokemonType.hpp"
 #include "iostream"
 
 
@@ -25,7 +26,46 @@ Pokemon::Pokemon(const Pokemon& _pokemon)
     health = _pokemon.health;
 }
 
-void Pokemon::Attack()
+void Pokemon::Attack(Pokemon& _target)
 {
-    cout << pokemonName << " attacks with a powerful move!" << endl;
+    int damage = 10;
+    cout << pokemonName << " attacks " << _target.pokemonName << " for " << damage << " damage!" << endl;
 }
+
+void Pokemon::TakeDamage(int _damage)
+{
+    health -= _damage;
+    if (health < 0)
+    {
+        health = 0;
+    }
+}
+
+void Pokemon::Battle(Pokemon& _playerPokemon, Pokemon& _wildPokemon)
+{
+    cout << "A wild " << _wildPokemon.pokemonName << " appeared!!" << endl;
+
+    while (!_playerPokemon.IsFainted() && !_wildPokemon.IsFainted())
+    {
+        _playerPokemon.Attack(_wildPokemon);
+        if (!_wildPokemon.IsFainted())
+        {
+            _wildPokemon.Attack(_playerPokemon);
+        }
+    }
+
+    if (_playerPokemon.IsFainted())
+    {
+        cout << _playerPokemon.pokemonName << " has fainted! You lose the battle." << endl;
+    }
+    else
+    {
+        cout<<"You defeated the wild " << _wildPokemon.pokemonName << "!" << endl;
+    }
+}
+
+bool Pokemon::IsFainted()
+{
+    health <= 0 ? return true : return false;
+}
+

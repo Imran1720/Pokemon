@@ -1,6 +1,8 @@
 #include <string>
-#include "Player.hpp"
+
 using namespace std;
+
+class Player;
 
 class ProfessorOak
 {

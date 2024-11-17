@@ -1,22 +1,24 @@
 #include "Game.hpp"
 #include "Player.hpp"
+#include "PokemonType.hpp"
 #include "Utility.hpp"
 #include "WildEncounterManager.hpp"
+
 #include<iostream>
 
 using namespace std;
 
 Game::Game()
 {
-	forestGrass = {
-		"Forest",
-		{
-			Pokemon("Pidgey",PokemonType::Normal,40),
-			Pokemon("Caterpie",PokemonType::Grass,35),
-			Pokemon("Zubat",PokemonType::Poision,30)
-		},
-		70
-	}
+    forestGrass = {
+        "Forest",
+        {
+            Pokemon("Pidgey",PokemonType::Normal,40),
+            Pokemon("Caterpie",PokemonType::Grass,35),
+            Pokemon("Zubat",PokemonType::Poision,30)
+        },
+        70
+    };
 }
 
 void Game::GameLoop(Player& _player)
@@ -43,10 +45,13 @@ void Game::GameLoop(Player& _player)
 
         switch (adventureChoice)
         {
-        case 1: WildEncounterManager encounterManager;
+        case 1:
+            {
+            WildEncounterManager encounterManager;
             Pokemon encounteredPokemon = encounterManager.GetRandomPokemonFromGrass(forestGrass);
-            cout << "A wild " << encounteredPokemon << " appeared!!" << endl;
+            cout << "A wild " << encounteredPokemon.pokemonName << " appeared!!" << endl;
             break;
+            }
         case 2: cout << "\nYou head to the PokeCenter, but Nurse Joy is out on a coffee break. Guess your Pokemon will have to tough it out for now!" << endl;
             break;
         case 3: cout << "\nYou march up to the Gym, but it's closed for renovations. Seems like even Gym Leaders need a break!" << endl;
