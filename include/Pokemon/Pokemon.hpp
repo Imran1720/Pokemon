@@ -12,8 +12,6 @@ namespace N_Pokemon
         int health,maxHealth=100;
         int attackPower;
 
-    
-
         Pokemon();
         Pokemon(string _name, PokemonType _type, int _heatlh,int _attackPower);
         Pokemon(const Pokemon& _pokemon);

@@ -6,12 +6,10 @@ class Pokemon;
 
 namespace N_Pokemon
 {
-
 	struct Grass
 	{
 		string typeOfEnvironment;
 		vector<Pokemon> wildPokemonList;
 		int rateOfEncounter;
 	};
-
 }

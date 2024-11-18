@@ -1,6 +1,5 @@
 namespace N_Pokemon
 {
-
     enum class PokemonType {
         Fire = 1,
         Water,
@@ -10,5 +9,4 @@ namespace N_Pokemon
         Normal,
         Rock
     };
-
 }

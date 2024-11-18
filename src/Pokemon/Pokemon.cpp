@@ -6,6 +6,7 @@ using namespace std;
 
 namespace N_Pokemon
 {
+
     Pokemon::Pokemon()
     {
         pokemonName = "Pikachu";
