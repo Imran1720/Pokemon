@@ -1,8 +1,10 @@
-#include "ProfessorOak.hpp"
-#include "Player.hpp"
-#include "Utility.hpp"
-#include "PokemonNames.hpp"
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Character\ProfessorOak.hpp"
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Character\Player\Player.hpp"
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Utility\Utility.hpp"
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Pokemon\PokemonNames.hpp"
+
 #include <iostream>
+
 
 using namespace std;
 

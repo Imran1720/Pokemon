@@ -1,7 +1,6 @@
-
-#include "BattleManager.hpp"
-#include "Player.hpp"
-#include "Utility.hpp"
+#include "../../include/Battle/BattleManager.hpp"
+#include "../../include/Character/Player/Player.hpp"
+#include "../../include/Utility/Utility.hpp"
 
 #include <iostream>
 
@@ -14,12 +13,13 @@ void BattleManager::StartBattle(Player& _player, Pokemon& _wildPokemon)
     battleState.playerTurn = true;
     battleState.battleOngoing = true;
 
-	cout << "A wild " << _wildPokemon.pokemonName << "Appeared!" << endl;
+	cout << "A wild " << _wildPokemon.pokemonName << " Appeared!" << endl;
 	BattleManager::Battle(_player.pokemonChoosen, _wildPokemon);
 }
 
 void BattleManager::Battle(Pokemon& _playerPokemon, Pokemon& _wildPokemon)
 {
+
     while (battleState.battleOngoing)
     {
         if (battleState.playerTurn)
@@ -31,6 +31,7 @@ void BattleManager::Battle(Pokemon& _playerPokemon, Pokemon& _wildPokemon)
             battleState.wildPokemon->Attack(*battleState.playerPokemon);
         }
 
+        battleState.playerTurn = !battleState.playerTurn;
         BattleManager::UpdateBattleState();
         //cout << _playerPokemon.health << " : " << _wildPokemon.health << endl;
         //cout << (bool)_playerPokemon.IsFainted() << endl;
@@ -55,7 +56,7 @@ void BattleManager::UpdateBattleState()
 void BattleManager::HandleBattleOutcome()
 {
     //cout << (bool)_playerPokemon.IsFainted() <<" : "<<_playerWon << endl;
-    if (battleState.playerPokemon->IsFainted())
+    if (!battleState.playerPokemon->IsFainted())
     {
         cout << battleState.playerPokemon->pokemonName << " is Victorious!! Keep an eye on your Pokemon's Health" << endl;
 

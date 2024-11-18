@@ -1,8 +1,9 @@
-#include "Player.hpp"
-#include "PokemonNames.hpp"
-#include "PokemonType.hpp"
-#include "Utility.hpp"
-#include "iostream"
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Character\Player\Player.hpp"
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Pokemon\PokemonNames.hpp"
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Pokemon\PokemonType.hpp"
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Utility\Utility.hpp"
+
+#include <iostream>
 
 using namespace std;
 

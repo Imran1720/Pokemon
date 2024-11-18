@@ -1,4 +1,4 @@
-#include "BattleState.hpp"
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Battle\BattleState.hpp"
 class Player;
 
 class BattleManager

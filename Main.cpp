@@ -1,11 +1,11 @@
-#include "Game.hpp"
-#include "Player.hpp"
-
-#include "ProfessorOak.hpp"
-#include "Utility.hpp"
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Main\Game.hpp"
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Character\Player\Player.hpp"
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Character\ProfessorOak.hpp"
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Utility\Utility.hpp"
 
 #include <iostream>
 #include <string>
+
 
 using namespace std;
 
@@ -13,12 +13,8 @@ using namespace std;
 
 int main()
 {
-   
-
     ProfessorOak professor("Oak");
-
     Player player;
-
 
     //professor oak introduction
     professor.Oak_Introduction(player);

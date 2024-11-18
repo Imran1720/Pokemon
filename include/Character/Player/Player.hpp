@@ -1,5 +1,8 @@
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Pokemon\Pokemon.hpp"
+
 #include <string>
-#include "Pokemon.hpp"
+
+
 
 using namespace std;
 

@@ -1,6 +1,7 @@
-#include "WildEncounterManager.hpp"
-#include "Grass.hpp"
-#include "Pokemon.hpp"
+#include "../../include/Battle/WildEncounterManager.hpp"
+#include "../../include/Pokemon/Grass.hpp"
+#include "D:\Outscal\C++ Intermediate\Pokemon\include\Pokemon\Pokemon.hpp"
+
 #include <cstdlib>
 #include <ctime>
 
