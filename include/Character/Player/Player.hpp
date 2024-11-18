@@ -7,10 +7,10 @@ using namespace std;
     {
     public:
         string playerName;
-        Pokemon pokemonChoosen;
+        N_Pokemon::Pokemon pokemonChoosen;
     
         Player();
-        Player(string p_name, Pokemon _pokemonChoosen);
+        Player(string p_name, N_Pokemon::Pokemon _pokemonChoosen);
         Player(const Player& _player);
         void SelectPokemon(int _choice);
     };

@@ -7,17 +7,17 @@ class Player;
 namespace N_Character {
 
 
-class ProfessorOak
-{
-public:
+    class ProfessorOak
+    {
+    public:
 
-    string name;
+        string name;
 
-    ProfessorOak(string _name);
-    void Oak_Introduction(Player& _player);
-    void Oak_PokemonOffer(Player& _player);
-    void ExplainMainQuest(Player& _player);
+        ProfessorOak(string _name);
+        void Oak_Introduction(Player& _player);
+        void Oak_PokemonOffer(Player& _player);
+        void ExplainMainQuest(Player& _player);
 
-};
+    };
 
 }

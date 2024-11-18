@@ -4,9 +4,14 @@
 using namespace std;
 class Pokemon;
 
-struct Grass
+namespace N_Pokemon
 {
-	string typeOfEnvironment;
-	vector<Pokemon> wildPokemonList;
-	int rateOfEncounter;
-};
+
+	struct Grass
+	{
+		string typeOfEnvironment;
+		vector<Pokemon> wildPokemonList;
+		int rateOfEncounter;
+	};
+
+}

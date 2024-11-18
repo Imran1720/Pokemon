@@ -6,31 +6,30 @@
 #include <iostream>
 
 using namespace std;
+using namespace N_Pokemon;
 
+Player::Player()
+{
+    playerName = "Trainer";
+    pokemonChoosen = Pokemon();
+}
 
+Player::Player(string p_name, Pokemon _pokemonChoosen)
+{
+    playerName = p_name;
+    pokemonChoosen = _pokemonChoosen;
+}
 
-    Player::Player()
+Player::Player(const Player& _player)
+{
+    playerName = _player.playerName;
+    pokemonChoosen = _player.pokemonChoosen;
+}
+
+void Player::SelectPokemon(int _choice)
+{
+    switch ((PokemonNames)_choice)
     {
-        playerName = "Trainer";
-        pokemonChoosen = Pokemon();
-    }
-
-    Player::Player(string p_name, Pokemon _pokemonChoosen)
-    {
-        playerName = p_name;
-        pokemonChoosen = _pokemonChoosen;
-    }
-
-    Player::Player(const Player& _player)
-    {
-        playerName = _player.playerName;
-        pokemonChoosen = _player.pokemonChoosen;
-    }
-
-    void Player::SelectPokemon(int _choice)
-    {
-        switch ((PokemonNames)_choice)
-        {
         case PokemonNames::Charmander:
             pokemonChoosen = Pokemon("Charmander", PokemonType::Fire, 100,10);
             break;
@@ -45,8 +44,5 @@ using namespace std;
 
         default:
             pokemonChoosen = Pokemon("Pikachu", PokemonType::Electric, 100,12);
-        }
-
-
-
     }
+}

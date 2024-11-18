@@ -1,27 +1,27 @@
 #include <string>
-
-enum class PokemonType;
-
 using namespace std;
 
-class Pokemon
+namespace N_Pokemon
 {
-public:
-    string pokemonName;
-    PokemonType typeOfPokemon;
-    int health,maxHealth=100;
-    int attackPower;
+    enum class PokemonType;
+    class Pokemon
+    {
+    public:
+        string pokemonName;
+        PokemonType typeOfPokemon;
+        int health,maxHealth=100;
+        int attackPower;
 
     
 
-    Pokemon();
-    Pokemon(string _name, PokemonType _type, int _heatlh,int _attackPower);
-    Pokemon(const Pokemon& _pokemon);
+        Pokemon();
+        Pokemon(string _name, PokemonType _type, int _heatlh,int _attackPower);
+        Pokemon(const Pokemon& _pokemon);
     
-    void Attack(Pokemon& _target);
-    void TakeDamage(int _damage);
-    //void Battle(Pokemon& _playerPokemon, Pokemon& _wildPokemon);
-    bool IsFainted();
-    void Heal();
-};
-
+        void Attack(Pokemon& _target);
+        void TakeDamage(int _damage);
+        //void Battle(Pokemon& _playerPokemon, Pokemon& _wildPokemon);
+        bool IsFainted();
+        void Heal();
+    };
+}

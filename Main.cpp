@@ -5,11 +5,9 @@
 #include <iostream>
 #include <string>
 
-
 using namespace std;
 using namespace N_Character;
 using namespace N_Main;
-
 
 int main()
 {
