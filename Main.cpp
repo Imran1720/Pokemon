@@ -1,14 +1,14 @@
-#include "D:\Outscal\C++ Intermediate\Pokemon\include\Main\Game.hpp"
-#include "D:\Outscal\C++ Intermediate\Pokemon\include\Character\Player\Player.hpp"
-#include "D:\Outscal\C++ Intermediate\Pokemon\include\Character\ProfessorOak.hpp"
-#include "D:\Outscal\C++ Intermediate\Pokemon\include\Utility\Utility.hpp"
+#include "..\include\Main\Game.hpp"
+#include "..\include\Character\Player\Player.hpp"
+#include "..\include\Character\ProfessorOak.hpp"
 
 #include <iostream>
 #include <string>
 
 
 using namespace std;
-
+using namespace N_Character;
+using namespace N_Main;
 
 
 int main()

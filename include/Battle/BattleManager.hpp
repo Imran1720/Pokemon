@@ -1,6 +1,8 @@
-#include "D:\Outscal\C++ Intermediate\Pokemon\include\Battle\BattleState.hpp"
+#include "..\include\Battle\BattleState.hpp"
 class Player;
 
+namespace N_Battle
+{ 
 class BattleManager
 {
 	public :
@@ -12,3 +14,4 @@ class BattleManager
 		void UpdateBattleState();
 		void HandleBattleOutcome();
 };
+}

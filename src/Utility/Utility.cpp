@@ -1,21 +1,27 @@
-#include "D:\Outscal\C++ Intermediate\Pokemon\include\Utility\Utility.hpp"
+#include "..\include\Utility\Utility.hpp"
 
 #include <iostream>
 #include <limits>
 
 using namespace std;
 
-void Utility::ClearScreen()
+namespace N_Utility
 {
-	system("cls");
-}
 
-void Utility::PlayerWaitResponse()
-{
-	cin.get();
-}
 
-void Utility::clearInputBuffer()
-{
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	void Utility::ClearScreen()
+	{
+		system("cls");
+	}
+
+	void Utility::PlayerWaitResponse()
+	{
+		cin.get();
+	}
+
+	void Utility::clearInputBuffer()
+	{
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	}
+
 }

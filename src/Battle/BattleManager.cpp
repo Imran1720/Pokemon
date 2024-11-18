@@ -1,10 +1,15 @@
-#include "../../include/Battle/BattleManager.hpp"
-#include "../../include/Character/Player/Player.hpp"
-#include "../../include/Utility/Utility.hpp"
+#include "../include/Battle/BattleManager.hpp"
+#include "../include/Character/Player/Player.hpp"
+#include "../include/Utility/Utility.hpp"
 
 #include <iostream>
 
 using namespace std;
+using namespace N_Utility;
+
+
+namespace N_Battle
+{
 
 void BattleManager::StartBattle(Player& _player, Pokemon& _wildPokemon)
 {
@@ -71,3 +76,5 @@ void BattleManager::HandleBattleOutcome()
 }
 
 
+
+}

@@ -1,3 +1,7 @@
+
+
+namespace N_Utility {
+
 class Utility
 {
 
@@ -7,3 +11,5 @@ public :
     static void PlayerWaitResponse();
     static void clearInputBuffer();
 };
+
+}

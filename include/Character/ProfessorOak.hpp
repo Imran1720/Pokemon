@@ -4,6 +4,9 @@ using namespace std;
 
 class Player;
 
+namespace N_Character {
+
+
 class ProfessorOak
 {
 public:
@@ -16,3 +19,5 @@ public:
     void ExplainMainQuest(Player& _player);
 
 };
+
+}

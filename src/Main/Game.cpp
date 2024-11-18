@@ -1,13 +1,20 @@
-#include "../../include/Main/Game.hpp"
-#include "../../include/Character/Player/Player.hpp"
-#include "D:\Outscal\C++ Intermediate\Pokemon\include\Battle\BattleManager.hpp"
-#include "../../include/Pokemon/PokemonType.hpp"
-#include "../../include/Utility/Utility.hpp"
-#include "../../include/Battle/WildEncounterManager.hpp"
+#include "../include/Main/Game.hpp"
+#include "../include/Character/Player/Player.hpp"
+#include "..\include\Battle\BattleManager.hpp"
+
+#include "../include/Pokemon/PokemonType.hpp"
+#include "../include/Utility/Utility.hpp"
+#include "../include/Battle/WildEncounterManager.hpp"
 
 #include<iostream>
 
 using namespace std;
+using namespace N_Utility;
+using namespace N_Battle;
+
+
+namespace N_Main
+{ 
 
 Game::Game()
 {
@@ -84,4 +91,5 @@ void Game::GameLoop(Player& _player)
         }
     }
     cout << "Thanks for playing the game " << _player.playerName << endl;
+}
 }

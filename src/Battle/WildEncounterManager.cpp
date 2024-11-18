@@ -1,9 +1,12 @@
-#include "../../include/Battle/WildEncounterManager.hpp"
-#include "../../include/Pokemon/Grass.hpp"
-#include "D:\Outscal\C++ Intermediate\Pokemon\include\Pokemon\Pokemon.hpp"
+#include "../include/Battle/WildEncounterManager.hpp"
+#include "../include/Pokemon/Grass.hpp"
+#include "..\include\Pokemon\Pokemon.hpp"
 
 #include <cstdlib>
 #include <ctime>
+
+namespace N_Battle
+{
 
 WildEncounterManager::WildEncounterManager()
 {
@@ -15,4 +18,5 @@ Pokemon WildEncounterManager::GetRandomPokemonFromGrass(const Grass& _forestGras
 	int randomIndex = rand() % _forestGrass.wildPokemonList.size();
 
 	return _forestGrass.wildPokemonList[randomIndex];
+}
 }

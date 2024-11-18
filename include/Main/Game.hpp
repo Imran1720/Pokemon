@@ -1,7 +1,10 @@
 #include "../../include/Pokemon/Grass.hpp"
 
-class Player;
 
+class Player;
+namespace N_Main
+
+{
 class Game
 {
 	private:
@@ -15,4 +18,4 @@ class Game
 		
 };
 
-
+}

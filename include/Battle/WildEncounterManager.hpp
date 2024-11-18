@@ -5,6 +5,10 @@ class Pokemon;
 
 using namespace std;
 
+namespace N_Battle
+{
+
+
 class WildEncounterManager
 {
 	public:
@@ -13,3 +17,5 @@ class WildEncounterManager
 
 
 };
+
+}

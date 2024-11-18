@@ -1,12 +1,15 @@
-#include "D:\Outscal\C++ Intermediate\Pokemon\include\Character\ProfessorOak.hpp"
-#include "D:\Outscal\C++ Intermediate\Pokemon\include\Character\Player\Player.hpp"
-#include "D:\Outscal\C++ Intermediate\Pokemon\include\Utility\Utility.hpp"
-#include "D:\Outscal\C++ Intermediate\Pokemon\include\Pokemon\PokemonNames.hpp"
+#include "..\include\Character\ProfessorOak.hpp"
+#include "..\include\Character\Player\Player.hpp"
+#include "..\include\Utility\Utility.hpp"
+#include "..\include\Pokemon\PokemonNames.hpp"
 
 #include <iostream>
 
 
 using namespace std;
+using namespace N_Utility;
+
+namespace N_Character {
 
 ProfessorOak::ProfessorOak(string _name)
 {
@@ -123,4 +126,7 @@ void ProfessorOak::ExplainMainQuest(Player& _player)
 
     cout << "\nProfessor " << name << " :  Thats's the spirit! Now, your journey begins." << endl;
     cout << "Professor " << name << " : But first... let's just pretend I didn't forget to set up the actual game loop... Ahem, onwards!" << endl;
+}
+
+
 }

@@ -1,5 +1,8 @@
 
 class Pokemon;
+
+namespace N_Battle {
+
 struct BattleState
 {
 
@@ -8,3 +11,4 @@ struct BattleState
 	bool playerTurn;
 	bool battleOngoing;
 };
+}
