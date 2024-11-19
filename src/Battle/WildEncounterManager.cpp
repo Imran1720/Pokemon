@@ -5,18 +5,20 @@
 #include <cstdlib>
 #include <ctime>
 
+using namespace std;
+
 namespace N_Battle
 {
 
-WildEncounterManager::WildEncounterManager()
-{
-	srand(time(0));
-}
+	WildEncounterManager::WildEncounterManager()
+	{
+		srand(time(0));
+	}
 
-Pokemon WildEncounterManager::GetRandomPokemonFromGrass(const Grass& _forestGrass)
-{
-	int randomIndex = rand() % _forestGrass.wildPokemonList.size();
+	N_Pokemon::Pokemon WildEncounterManager::GetRandomPokemonFromGrass(const N_Pokemon::Grass& _forestGrass)
+	{
+		int randomIndex = rand() % _forestGrass.wildPokemonList.size();
 
-	return _forestGrass.wildPokemonList[randomIndex];
-}
+		return _forestGrass.wildPokemonList[randomIndex];
+	}
 }

@@ -1,8 +1,9 @@
+
+#pragma once
 #include "../include/Main/Game.hpp"
 #include "../include/Character/Player/Player.hpp"
 #include "..\include\Battle\BattleManager.hpp"
-
-#include "../include/Pokemon/PokemonType.hpp"
+#include "../include/Pokemon/Pokemon.hpp"
 #include "../include/Utility/Utility.hpp"
 #include "../include/Battle/WildEncounterManager.hpp"
 
@@ -11,7 +12,7 @@
 using namespace std;
 using namespace N_Utility;
 using namespace N_Battle;
-
+using namespace N_Pokemon;
 
 namespace N_Main
 { 
@@ -21,15 +22,15 @@ Game::Game()
     forestGrass = {
         "Forest",
         {
-            Pokemon("Pidgey",PokemonType::Normal,40,8),
-            Pokemon("Caterpie",PokemonType::Grass,35,9),
-            Pokemon("Zubat",PokemonType::Poision,30,11)
+            Pokemon("Pidgey",N_Pokemon::PokemonType::Normal,40,8),
+            Pokemon("Caterpie",N_Pokemon::PokemonType::Grass,35,9),
+            Pokemon("Zubat",N_Pokemon::PokemonType::Poision,30,11)
         },
         70
     };
 }
 
-void Game::GameLoop(Player& _player)
+void Game::GameLoop(N_Player::Player& _player)
 {
     BattleManager battleManager;
     int adventureChoice;

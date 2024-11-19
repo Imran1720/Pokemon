@@ -1,5 +1,6 @@
 namespace N_Pokemon
 {
+
     enum class PokemonNames
     {
         Charmander = 1,
@@ -7,4 +8,5 @@ namespace N_Pokemon
         Squirtle,
         Pikachu
     };
+
 }

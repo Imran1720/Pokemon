@@ -1,11 +1,10 @@
+#pragma once
 #include <string>
+#include "../include/Main/Game.hpp"
 
 using namespace std;
 
-class Player;
-
 namespace N_Character {
-
 
     class ProfessorOak
     {
@@ -14,9 +13,9 @@ namespace N_Character {
         string name;
 
         ProfessorOak(string _name);
-        void Oak_Introduction(Player& _player);
-        void Oak_PokemonOffer(Player& _player);
-        void ExplainMainQuest(Player& _player);
+        void Oak_Introduction(N_Player::Player& _player);
+        void Oak_PokemonOffer(N_Player::Player& _player);
+        void ExplainMainQuest(N_Player::Player& _player);
 
     };
 

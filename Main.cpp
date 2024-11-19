@@ -12,7 +12,7 @@ using namespace N_Main;
 int main()
 {
     ProfessorOak professor("Oak");
-    Player player;
+    N_Player::Player player;
 
     //professor oak introduction
     professor.Oak_Introduction(player);

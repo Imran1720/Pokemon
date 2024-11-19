@@ -1,15 +1,16 @@
+#pragma once
+#include "../../include/Pokemon/Pokemon.hpp"
 #include <string>
 #include <vector>
 
 using namespace std;
-class Pokemon;
 
 namespace N_Pokemon
 {
 	struct Grass
 	{
 		string typeOfEnvironment;
-		vector<Pokemon> wildPokemonList;
+		vector<N_Pokemon::Pokemon> wildPokemonList;
 		int rateOfEncounter;
 	};
 }

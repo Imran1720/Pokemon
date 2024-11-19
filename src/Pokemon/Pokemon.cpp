@@ -1,5 +1,7 @@
+#pragma once
 #include "../../include/Pokemon/Pokemon.hpp"
-#include "../../include/Pokemon/PokemonType.hpp"
+
+#include <string>
 #include <iostream>
 
 using namespace std;
@@ -15,7 +17,7 @@ namespace N_Pokemon
         attackPower = 12;
     }
 
-    Pokemon::Pokemon(string _name, PokemonType _type, int _heatlh, int _attackPower)
+    Pokemon::Pokemon(string _name, N_Pokemon::PokemonType _type, int _heatlh, int _attackPower)
     {
         pokemonName = _name;
         typeOfPokemon = _type;
@@ -23,15 +25,17 @@ namespace N_Pokemon
         attackPower = _attackPower;
     }
 
-    Pokemon::Pokemon(const Pokemon& _pokemon)
+    Pokemon::Pokemon(const N_Pokemon::Pokemon& _pokemon)
     {
+
         pokemonName = _pokemon.pokemonName;
         typeOfPokemon = _pokemon.typeOfPokemon;
         health = _pokemon.health;
         attackPower = _pokemon.attackPower;
     }
 
-    void Pokemon::Attack(Pokemon& _target)
+    
+    void Pokemon::Attack(N_Pokemon::Pokemon& _target)
     {
         int damage = attackPower;
         cout << pokemonName << " attacks " << _target.pokemonName << " for " << damage << " damage!" << endl;
@@ -56,6 +60,4 @@ namespace N_Pokemon
     {
         health = maxHealth;
     }
-
-
 }

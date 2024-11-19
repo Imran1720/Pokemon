@@ -1,6 +1,7 @@
+#pragma once
 #include "../../include/Pokemon/Grass.hpp"
+#include "../../include/Character/Player/Player.hpp"
 
-class Player;
 
 namespace N_Main
 {
@@ -12,7 +13,7 @@ namespace N_Main
 		public:
 			Game();
 
-			void GameLoop(Player& _player);
+			void GameLoop(N_Player::Player& _player);
 
 		
 	};

@@ -16,7 +16,7 @@ ProfessorOak::ProfessorOak(string _name)
     name = _name;
 }
 
-void ProfessorOak::Oak_Introduction(Player& _player)
+void ProfessorOak::Oak_Introduction(N_Player::Player& _player)
 {
     cout << "Professor " << name << " : Hello there! Welcome to the world of Pokemon!" << endl;
     cout << "Professor " << name << " : My name is Oak. People call me the Pokemon Professor!" << endl;
@@ -28,7 +28,7 @@ void ProfessorOak::Oak_Introduction(Player& _player)
     Utility::ClearScreen();
 }
 
-void ProfessorOak::Oak_PokemonOffer(Player& _player)
+void ProfessorOak::Oak_PokemonOffer(N_Player::Player& _player)
 {
     cout << "\nProfessor " << name << " : Ah, " << _player.playerName << "! What a fantastic name!" << endl;
     cout << "Professor " << name << " : You must be eager to start your adventure." << endl;
@@ -63,17 +63,17 @@ void ProfessorOak::Oak_PokemonOffer(Player& _player)
 
     Utility::ClearScreen();
 
-    switch ((PokemonNames)pokemonChoosed)
+    switch ((N_Pokemon::PokemonNames)pokemonChoosed)
     {
-    case PokemonNames::Charmander:
+    case N_Pokemon::PokemonNames::Charmander:
         cout << "\nProfessor " << name << " : A fiery choice! " << _player.pokemonChoosen.pokemonName << " is yours! " << endl;
         cout << "Professor " << name << " : " << _player.pokemonChoosen.pokemonName << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
         break;
-    case PokemonNames::Bulbasaur:
+    case N_Pokemon::PokemonNames::Bulbasaur:
         cout << "\nProfessor " << name << " : A grassy choice! " << _player.pokemonChoosen.pokemonName << " is yours! " << endl;
         cout << "Professor " << name << " : " << _player.pokemonChoosen.pokemonName << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
         break;
-    case PokemonNames::Squirtle:
+    case N_Pokemon::PokemonNames::Squirtle:
         cout << "\nProfessor " << name << " : A watery choice! " << _player.pokemonChoosen.pokemonName << " is yours! " << endl;
         cout << "Professor " << name << " : " << _player.pokemonChoosen.pokemonName << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
         break;
@@ -88,7 +88,7 @@ void ProfessorOak::Oak_PokemonOffer(Player& _player)
 
 }
 
-void ProfessorOak::ExplainMainQuest(Player& _player)
+void ProfessorOak::ExplainMainQuest(N_Player::Player& _player)
 {
 
     Utility::ClearScreen();

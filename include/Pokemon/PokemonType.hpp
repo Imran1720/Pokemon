@@ -9,4 +9,5 @@ namespace N_Pokemon
         Normal,
         Rock
     };
+
 }
