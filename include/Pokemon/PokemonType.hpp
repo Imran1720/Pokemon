@@ -7,7 +7,8 @@ namespace N_Pokemon
         Grass,
         Poision,
         Normal,
-        Rock
+        Rock,
+        Bug
     };
 
 }
