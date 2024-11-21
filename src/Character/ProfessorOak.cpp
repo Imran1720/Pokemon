@@ -66,22 +66,22 @@ void ProfessorOak::Oak_PokemonOffer(N_Player::Player& _player)
     switch ((N_Pokemon::PokemonNames)pokemonChoosed)
     {
     case N_Pokemon::PokemonNames::Charmander:
-        cout << "\nProfessor " << name << " : A fiery choice! " << _player.pokemonChoosen.pokemonName << " is yours! " << endl;
-        cout << "Professor " << name << " : " << _player.pokemonChoosen.pokemonName << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
+        cout << "\nProfessor " << name << " : A fiery choice! " << _player.pokemonChoosen.GetPokemonName() << " is yours! " << endl;
+        cout << "Professor " << name << " : " << _player.pokemonChoosen.GetPokemonName() << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
         break;
     case N_Pokemon::PokemonNames::Bulbasaur:
-        cout << "\nProfessor " << name << " : A grassy choice! " << _player.pokemonChoosen.pokemonName << " is yours! " << endl;
-        cout << "Professor " << name << " : " << _player.pokemonChoosen.pokemonName << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
+        cout << "\nProfessor " << name << " : A grassy choice! " << _player.pokemonChoosen.GetPokemonName() << " is yours! " << endl;
+        cout << "Professor " << name << " : " << _player.pokemonChoosen.GetPokemonName() << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
         break;
     case N_Pokemon::PokemonNames::Squirtle:
-        cout << "\nProfessor " << name << " : A watery choice! " << _player.pokemonChoosen.pokemonName << " is yours! " << endl;
-        cout << "Professor " << name << " : " << _player.pokemonChoosen.pokemonName << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
+        cout << "\nProfessor " << name << " : A watery choice! " << _player.pokemonChoosen.GetPokemonName() << " is yours! " << endl;
+        cout << "Professor " << name << " : " << _player.pokemonChoosen.GetPokemonName() << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
         break;
     default:
         cout << "\nProfessor " << name << " : Hmm, that doesn't seem right. " << endl;
         cout << "Professor " << name << " : Let me choose for you..." << endl;
-        cout << "Professor " << name << " : Just kidding! Let's go with " << _player.pokemonChoosen.pokemonName << ", the surprise guest!" << endl;
-        cout << "Professor " << name << " : " << _player.pokemonChoosen.pokemonName << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
+        cout << "Professor " << name << " : Just kidding! Let's go with " << _player.pokemonChoosen.GetPokemonName() << ", the surprise guest!" << endl;
+        cout << "Professor " << name << " : " << _player.pokemonChoosen.GetPokemonName() << " and you, " << _player.playerName << ", are going to be the best of friends! " << endl;
         break;
     }
     Utility::PlayerWaitResponse();

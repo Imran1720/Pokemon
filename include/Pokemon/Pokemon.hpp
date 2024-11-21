@@ -8,13 +8,14 @@ namespace N_Pokemon
 
     class Pokemon
     {
-    public:
+    protected:
         string pokemonName;
         PokemonType typeOfPokemon;
         int health;
         int maxHealth = 100;
         int attackPower;
 
+    public:
         Pokemon();
         Pokemon(string _name, PokemonType _type, int _heatlh, int _attackPower);
         Pokemon(const Pokemon& _pokemon);
@@ -24,6 +25,9 @@ namespace N_Pokemon
         //void Battle(Pokemon& _playerPokemon, Pokemon& _wildPokemon);
         bool IsFainted();
         void Heal();
+
+        string GetPokemonName();
+
     };
 
 }

@@ -60,4 +60,6 @@ namespace N_Pokemon
     {
         health = maxHealth;
     }
+
+    string GetPokemonName() { return pokemonName; }
 }
