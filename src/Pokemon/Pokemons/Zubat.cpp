@@ -11,7 +11,7 @@ namespace N_Pokemon
 
 		void Zubat::SuperSonic(Pokemon& target)
 		{
-			cout << pokemonName << " uses Super Sonic on " << target.pokemonName << endl;
+			cout << pokemonName << " uses Super Sonic on " << target.GetPokemonName() << endl;
 			target.TakeDamage(20);
 		}
 	}

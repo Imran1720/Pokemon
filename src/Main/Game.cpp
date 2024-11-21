@@ -1,40 +1,45 @@
 
 #pragma once
 #include "../include/Main/Game.hpp"
-#include "../include/Character/Player/Player.hpp"
 #include "..\include\Battle\BattleManager.hpp"
-#include "../include/Pokemon/Pokemon.hpp"
-#include "../include/Utility/Utility.hpp"
 #include "../include/Battle/WildEncounterManager.hpp"
+#include "../include/Character/Player/Player.hpp"
+#include "../include/Pokemon/Pokemons/Pidgey.hpp"
+#include "../include/Pokemon/Pokemons/Zubat.hpp"
+#include "../include/Pokemon/Pokemons/Caterpie.hpp"
+#include "../include/Utility/Utility.hpp"
 
 #include<iostream>
 
-using namespace std;
-using namespace N_Utility;
-using namespace N_Battle;
-using namespace N_Pokemon;
 
 namespace N_Main
 { 
+using namespace std;
+using namespace N_Utility;
+using namespace N_Pokemon;
+using namespace N_Pokemon::N_Pokemons;
+using namespace N_Battle;
+using namespace N_Character::N_Player;
 
 Game::Game()
 {
     forestGrass = {
         "Forest",
         {
-            Pokemon("Pidgey",N_Pokemon::PokemonType::Normal,40,8),
-            Pokemon("Caterpie",N_Pokemon::PokemonType::Grass,35,9),
-            Pokemon("Zubat",N_Pokemon::PokemonType::Poision,30,11)
+            Pidgey(),Caterpie(),Zubat()
+            
         },
         70
     };
 }
 
-void Game::GameLoop(N_Player::Player& _player)
+void Game::GameLoop(Player& _player)
 {
     BattleManager battleManager;
     int adventureChoice;
     bool isGameRunning = true;
+    WildEncounterManager encounterManager;
+    Pokemon encounteredPokemon;
 
 
     while (isGameRunning)
@@ -57,8 +62,7 @@ void Game::GameLoop(N_Player::Player& _player)
         {
         case 1:
             {
-                WildEncounterManager encounterManager;
-                Pokemon encounteredPokemon = encounterManager.GetRandomPokemonFromGrass(forestGrass);
+                encounteredPokemon = encounterManager.GetRandomPokemonFromGrass(forestGrass);
                 
                 battleManager.StartBattle(_player, encounteredPokemon);
 
@@ -68,7 +72,7 @@ void Game::GameLoop(N_Player::Player& _player)
             {
                 cout << "You head to Pokecenter" << endl;
                 _player.pokemonChoosen.Heal();
-                cout << _player.pokemonChoosen.pokemonName << "'s health is fully restored" << endl;
+                cout << _player.pokemonChoosen.GetPokemonName() << "'s health is fully restored" << endl;
                 break;
                 break;
             }
