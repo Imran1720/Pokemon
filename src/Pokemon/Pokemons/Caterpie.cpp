@@ -1,5 +1,4 @@
 #include "../../../include/Pokemon/Pokemons/Caterpie.hpp"
-#include "../../../include/Pokemon/PokemonType.hpp"
 
 #include <iostream>
 

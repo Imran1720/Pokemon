@@ -1,5 +1,4 @@
 #include "../../../include/Pokemon/Pokemons/Pidgey.hpp"
-#include "../../../include/Pokemon/PokemonType.hpp"
 
 #include <iostream>
 
