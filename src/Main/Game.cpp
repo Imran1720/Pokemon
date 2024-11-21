@@ -33,7 +33,7 @@ Game::Game()
     };
 }
 
-void Game::GameLoop(Player& _player)
+void Game::GameLoop(Player* _player)
 {
     BattleManager battleManager;
     int adventureChoice;
@@ -47,7 +47,7 @@ void Game::GameLoop(Player& _player)
         Utility::PlayerWaitResponse();
         Utility::ClearScreen();
 
-        cout << _player.playerName << "!, What would you like to do next " << endl;
+        cout << _player->playerName << "!, What would you like to do next " << endl;
 
         cout << "1. Battle Wild Pokemon" << endl;
         cout << "2. Visit PokeCenter" << endl;
@@ -71,8 +71,8 @@ void Game::GameLoop(Player& _player)
         case 2:
             {
                 cout << "You head to Pokecenter" << endl;
-                _player.pokemonChoosen.Heal();
-                cout << _player.pokemonChoosen.GetPokemonName() << "'s health is fully restored" << endl;
+                _player->pokemonChoosen.Heal();
+                cout << _player->pokemonChoosen.GetPokemonName() << "'s health is fully restored" << endl;
                 break;
                 break;
             }
@@ -95,6 +95,6 @@ void Game::GameLoop(Player& _player)
         default: cout << "Invalid choice. Try again!" << endl;
         }
     }
-    cout << "Thanks for playing the game " << _player.playerName << endl;
+    cout << "Thanks for playing the game " << _player->playerName << endl;
 }
 }

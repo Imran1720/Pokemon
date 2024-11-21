@@ -14,15 +14,15 @@ namespace N_Battle
     using namespace N_Character::N_Player;
     using namespace N_Pokemon;
 
-    void BattleManager::StartBattle(Player& _player, Pokemon& _wildPokemon)
+    void BattleManager::StartBattle(Player* _player, Pokemon& _wildPokemon)
     {
-        battleState.playerPokemon = &_player.pokemonChoosen;
+        battleState.playerPokemon = &_player->pokemonChoosen;
         battleState.wildPokemon = &_wildPokemon;
         battleState.playerTurn = true;
         battleState.battleOngoing = true;
 
 	    cout << "A wild " << _wildPokemon.GetPokemonName() << " Appeared!" << endl;
-	    BattleManager::Battle(_player.pokemonChoosen, _wildPokemon);
+	    BattleManager::Battle(_player->pokemonChoosen, _wildPokemon);
     }
 
     void BattleManager::Battle(Pokemon& _playerPokemon, Pokemon& _wildPokemon)
