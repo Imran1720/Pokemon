@@ -3,14 +3,16 @@
 #include <string>
 #include <vector>
 
-using namespace std;
 
 namespace N_Pokemon
 {
+	
+	using namespace std;
+	
 	struct Grass
 	{
 		string typeOfEnvironment;
-		vector<N_Pokemon::Pokemon> wildPokemonList;
+		vector<Pokemon*> wildPokemonList;
 		int rateOfEncounter;
 	};
 }

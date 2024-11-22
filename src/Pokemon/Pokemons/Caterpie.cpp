@@ -9,7 +9,7 @@ namespace N_Pokemon
 		using namespace std;
 		Caterpie::Caterpie() : Pokemon("Caterpie", PokemonType::Bug, 100, 10) {}
 
-		Caterpie::Attack(Pokemon* target)
+		void Caterpie::Attack(Pokemon* target)
 		{
 			BugBite(target);
 		}

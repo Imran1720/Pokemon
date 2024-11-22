@@ -15,10 +15,10 @@ namespace N_Character
         {
         public:
             string playerName;
-            Pokemon pokemonChoosen;
+            Pokemon* pokemonChoosen;
 
             Player();
-            Player(string p_name, Pokemon _pokemonChoosen);
+            Player(string p_name);
             Player(const Player& _player);
             void SelectPokemon(int _choice);
         };

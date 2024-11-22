@@ -19,13 +19,11 @@ namespace N_Character
         Player::Player()
         {
             playerName = "Trainer";
-            pokemonChoosen = Pokemon();
         }
 
-        Player::Player(string p_name, Pokemon _pokemonChoosen)
+        Player::Player(string p_name)
         {
             playerName = p_name;
-            pokemonChoosen = _pokemonChoosen;
         }
 
         Player::Player(const Player& _player)
@@ -39,19 +37,19 @@ namespace N_Character
             switch ((N_Pokemon::PokemonNames)_choice)
             {
             case PokemonNames::Charmander:
-                pokemonChoosen = Charmendar();
+                pokemonChoosen = new Charmendar();
                 break;
 
             case PokemonNames::Bulbasaur:
-                pokemonChoosen =Bulbasaur();
+                pokemonChoosen = new Bulbasaur();
                 break;
 
             case PokemonNames::Squirtle:
-                pokemonChoosen = Squirtle();
+                pokemonChoosen = new Squirtle();
                 break;
 
             default:
-                pokemonChoosen = Pikachu();
+                pokemonChoosen = new Pikachu();
             }
         }
     }

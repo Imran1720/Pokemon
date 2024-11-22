@@ -8,11 +8,11 @@ namespace N_Battle
 	{
 		
 		public :
-			void StartBattle(N_Character::N_Player::Player* _player, N_Pokemon::Pokemon& _wildPokemon);
+			void StartBattle(N_Character::N_Player::Player* _player, N_Pokemon::Pokemon* _wildPokemon);
 
 		private :
 			BattleState battleState;
-			void Battle(N_Pokemon::Pokemon& _playerPokemon, N_Pokemon::Pokemon& _wildPokemon);
+			void Battle();
 			void UpdateBattleState();
 			void HandleBattleOutcome();
 	};

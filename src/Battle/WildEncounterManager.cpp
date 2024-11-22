@@ -15,7 +15,7 @@ namespace N_Battle
 		srand(time(0));
 	}
 
-	N_Pokemon::Pokemon WildEncounterManager::GetRandomPokemonFromGrass(const N_Pokemon::Grass& _forestGrass)
+	N_Pokemon::Pokemon* WildEncounterManager::GetRandomPokemonFromGrass(const N_Pokemon::Grass& _forestGrass)
 	{
 		int randomIndex = rand() % _forestGrass.wildPokemonList.size();
 

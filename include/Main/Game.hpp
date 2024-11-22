@@ -11,10 +11,11 @@ namespace N_Main
 	{
 		private:
 			Grass forestGrass;
+			Pokemon* wildPokemon;
 
 		public:
 			Game();
-
+			~Game();
 			void GameLoop(Player* _player);
 
 		

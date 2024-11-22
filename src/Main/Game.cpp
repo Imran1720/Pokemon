@@ -26,11 +26,16 @@ Game::Game()
     forestGrass = {
         "Forest",
         {
-            Pidgey(),Caterpie(),Zubat()
+            new Pidgey(),new Caterpie(),new Zubat()
             
         },
         70
     };
+}
+
+Game::~Game()
+{
+    delete(wildPokemon);
 }
 
 void Game::GameLoop(Player* _player)
@@ -39,7 +44,7 @@ void Game::GameLoop(Player* _player)
     int adventureChoice;
     bool isGameRunning = true;
     WildEncounterManager encounterManager;
-    Pokemon encounteredPokemon;
+    //wildPokemon = new Pokemon();
 
 
     while (isGameRunning)
@@ -62,17 +67,17 @@ void Game::GameLoop(Player* _player)
         {
         case 1:
             {
-                encounteredPokemon = encounterManager.GetRandomPokemonFromGrass(forestGrass);
+                wildPokemon = encounterManager.GetRandomPokemonFromGrass(forestGrass);
                 
-                battleManager.StartBattle(_player, encounteredPokemon);
+                battleManager.StartBattle(_player, wildPokemon);
 
                 break;
             }
         case 2:
             {
                 cout << "You head to Pokecenter" << endl;
-                _player->pokemonChoosen.Heal();
-                cout << _player->pokemonChoosen.GetPokemonName() << "'s health is fully restored" << endl;
+                _player->pokemonChoosen->Heal();
+                cout << _player->pokemonChoosen->GetPokemonName() << "'s health is fully restored" << endl;
                 break;
                 break;
             }
