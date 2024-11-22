@@ -9,33 +9,31 @@ namespace N_Pokemon
 		using namespace std;
 		using namespace N_Utility;
 
-		Pikachu::Pikachu() : Pokemon("Pikachu", PokemonType::Electric, 100, 15) {}
+		Pikachu::Pikachu() : Pokemon("Pikachu", PokemonType::Electric, 100, {
+			Move("Thunder Shock",25),Move("Tackle",10)
+			}) {}
 
-		void Pikachu::Attack(Pokemon* target)
+		void Pikachu::Attack(Move _selectedMove,Pokemon* target)
 		{
-			ThunderShock(target);
-		}
 
-		void Pikachu::ThunderShock(Pokemon* target)
-		{
-			cout << pokemonName << " used Thunder Shock!" << endl;
-			Utility::PlayerWaitResponse();
-
-			cout << "..." << endl;
-			Utility::PlayerWaitResponse();
-
-			target->TakeDamage(20);
-
-			if (target->IsFainted())
+			if (_selectedMove.name == "Thunder Shock")
 			{
-				cout << target->GetPokemonName() << " fainted!" << endl;
+				if (rand() % 100 < 80)
+				{
+					Pokemon::Attack(_selectedMove, target);
+					cout << "A successful hit!" << endl;
+				}
+				else
+				{
+					cout << "It Missed!" << endl;
+				}
 			}
 			else
 			{
-				cout << target->GetPokemonName() << " has " << target->GetHealth() << " HP left." << endl;
+				Pokemon::Attack(_selectedMove,target);
 			}
-
-			Utility::PlayerWaitResponse();
 		}
+
+		
 	}
 }

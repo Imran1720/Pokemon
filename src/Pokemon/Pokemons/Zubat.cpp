@@ -9,33 +9,30 @@ namespace N_Pokemon
 		using namespace std;
 		using namespace N_Utility;
 
-		Zubat::Zubat() : Pokemon("Zubat", PokemonType::Poision, 100, 20) {}
+		Zubat::Zubat() : Pokemon("Zubat", PokemonType::Poision, 100, {
+			Move("Super Sonic",25),
+			Move("Tackle",10),
+			Move("Leech Life",10)
+			}) {}
 
-		void Zubat::Attack(Pokemon* target)
+		void Zubat::Attack(Move _selectedMove,Pokemon* target)
 		{
-			SuperSonic(target);
-		}
+			Pokemon::Attack(_selectedMove, target);
 
-		void Zubat::SuperSonic(Pokemon* target)
-		{
-			cout << pokemonName << " used Super Sonic!" << endl;
-			Utility::PlayerWaitResponse();
-
-			cout << "..." << endl;
-			Utility::PlayerWaitResponse();
-
-			target->TakeDamage(20);
-
-			if (target->IsFainted())
+			if (_selectedMove.name == "Leech Life")
 			{
-				cout << target->GetPokemonName() << " fainted!" << endl;
-			}
-			else
-			{
-				cout << target->GetPokemonName() << " has " << target->GetHealth() << " HP left." << endl;
+				this->health += _selectedMove.power * 0.5;
+				if (this->health > this->maxHealth)
+				{
+					this->health = this->maxHealth;
+				}
+				cout << "..and regained Health" << endl;
 			}
 
-			Utility::PlayerWaitResponse();
+
+
 		}
+
+		
 	}
 }

@@ -9,34 +9,23 @@ namespace N_Pokemon
 		using namespace std;
 		using namespace N_Utility;
 
-		Charmendar::Charmendar() : Pokemon("Charmendar", PokemonType::Fire, 100, 35) {}
+		Charmendar::Charmendar() : Pokemon("Charmendar", PokemonType::Fire, 100, {
+			Move("Flame Burst",20),Move("Tackle",10),Move("Blazing Charge",35)
+			}) {}
 
-		void Charmendar::Attack(Pokemon* target)
+		void Charmendar::Attack(Move _selectedMove,Pokemon* target)
 		{
-			FlameBurst(target);
+			Pokemon::Attack(_selectedMove, target);
+
+			if (_selectedMove.name == "Blazing Charge")
+			{
+				this->TakeDamage(10);
+
+				cout << this->GetPokemonName() << " takes 10 recoil damage from Blazing Charge!" << endl;
+				N_Utility::Utility::PlayerWaitResponse();
+			}
 		}
 
-		void Charmendar::FlameBurst(Pokemon* target)
-		{
-			cout << pokemonName << " used Flame Burst!" << endl;
-			Utility::PlayerWaitResponse();
-
-			cout << "..." << endl;
-			Utility::PlayerWaitResponse();
-			
-			target->TakeDamage(20);
-
-			if (target->IsFainted())
-			{
-				cout << target->GetPokemonName() << " fainted!" << endl;
-			}
-			else
-			{
-				cout<< target->GetPokemonName() << " has "<< target->GetHealth() << " HP left."  << endl;
-			}
-
-			Utility::PlayerWaitResponse();
-
-		}
+		
 	}
 }

@@ -1,5 +1,7 @@
+#pragma once
 #include "../../../include/Pokemon/Pokemons/Pidgey.hpp"
 #include "../../../include/Utility/Utility.hpp"
+#include "../../../include/Battle/BattleManager.hpp"
 #include <iostream>
 
 namespace N_Pokemon
@@ -9,33 +11,24 @@ namespace N_Pokemon
 		using namespace std;
 		using namespace N_Utility;
 
-		Pidgey::Pidgey() : Pokemon("Pidgey", PokemonType::Normal, 100, 35) {}
+		Pidgey::Pidgey() : Pokemon("Pidgey", PokemonType::Normal, 100, {
+			Move("Wind Attack",25),Move("Tackle",10),Move("Gust",5)
+			}) {}
 
-		void Pidgey::Attack(Pokemon* target)
+		void Pidgey::Attack(Move _selectedMove,Pokemon* target)
 		{
-			WindAttack(target);
+			Pokemon::Attack(_selectedMove, target);
+
+			if (_selectedMove.name == "Gust")
+			{
+				if (rand() % 100 < 20)
+				{
+					cout << "...and blew the opponent away" << endl;
+					//N_Battle::BattleManager::StopBattle();
+					N_Utility::Utility::PlayerWaitResponse();
+				}
+			}
 		}
 
-		void Pidgey::WindAttack(Pokemon* target)
-		{
-			cout << pokemonName << " used Wind Attack!" << endl;
-			Utility::PlayerWaitResponse();
-
-			cout << "..." << endl;
-			Utility::PlayerWaitResponse();
-
-			target->TakeDamage(20);
-
-			if (target->IsFainted())
-			{
-				cout << target->GetPokemonName() << " fainted!" << endl;
-			}
-			else
-			{
-				cout << target->GetPokemonName() << " has " << target->GetHealth() << " HP left." << endl;
-			}
-
-			Utility::PlayerWaitResponse();
-		}
 	}
 }

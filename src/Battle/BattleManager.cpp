@@ -32,11 +32,11 @@ namespace N_Battle
         {
             if (battleState.playerTurn)
             {
-                battleState.playerPokemon->Attack(battleState.wildPokemon);
+                battleState.playerPokemon->SelectAndUseMoves(battleState.wildPokemon);
             }
             else
             {
-                battleState.wildPokemon->Attack(battleState.playerPokemon);
+                battleState.wildPokemon->SelectAndUseMoves(battleState.playerPokemon);
             }
 
             battleState.playerTurn = !battleState.playerTurn;
@@ -69,7 +69,7 @@ namespace N_Battle
             cout << battleState.playerPokemon->GetPokemonName() << " is Victorious!! Keep an eye on your Pokemon's Health" << endl;
 
         }
-        else
+        else if(battleState.playerPokemon->IsFainted())
         {
             cout << "Oh-no!" << battleState.playerPokemon->GetPokemonName() << " fainted!! You need to visit the PokeCenter" << endl;
             Utility::PlayerWaitResponse();
@@ -78,6 +78,9 @@ namespace N_Battle
 
     }
 
-
+    void BattleManager::StopBattle()
+    {
+        battleState.battleOngoing = false;
+    }
 
 }
