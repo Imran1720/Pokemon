@@ -10,10 +10,15 @@ namespace N_Pokemon
 
 		Charmendar::Charmendar() : Pokemon("Charmendar", PokemonType::Fire, 100, 35) {}
 
-		void Charmendar::FlameBurst(Pokemon& target)
+		void Charmendar::Attack(Pokemon* target)
 		{
-			cout << pokemonName << " uses Flame Burst on " << target.GetPokemonName() << "!" << endl;
-			target.TakeDamage(20);
+			FlameBurst(target);
+		}
+
+		void Charmendar::FlameBurst(Pokemon* target)
+		{
+			cout << pokemonName << " uses Flame Burst on " << target->GetPokemonName() << "!" << endl;
+			target->TakeDamage(20);
 		}
 	}
 }

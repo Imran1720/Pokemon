@@ -20,7 +20,7 @@ namespace N_Pokemon
         Pokemon(string _name, PokemonType _type, int _heatlh, int _attackPower);
         Pokemon(const Pokemon& _pokemon);
     
-        void Attack(Pokemon& _target);
+        virtual void Attack(Pokemon* _target) =0;
         void TakeDamage(int _damage);
         //void Battle(Pokemon& _playerPokemon, Pokemon& _wildPokemon);
         bool IsFainted();

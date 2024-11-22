@@ -34,13 +34,13 @@ namespace N_Pokemon
         attackPower = _pokemon.attackPower;
     }
 
-    
+    /*
     void Pokemon::Attack(N_Pokemon::Pokemon& _target)
     {
         int damage = attackPower;
         cout << pokemonName << " attacks " << _target.pokemonName << " for " << damage << " damage!" << endl;
         _target.TakeDamage(damage);
-    }
+    }*/
 
     void Pokemon::TakeDamage(int _damage)
     {

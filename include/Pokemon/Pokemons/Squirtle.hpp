@@ -5,13 +5,13 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		class Caterpie : public Pokemon
+		class Squirtle : public Pokemon
 		{
 		private:
-			void BugBite(Pokemon* target);
+			void WaterSplash(Pokemon* target);
 
 		public:
-			Caterpie();
+			Squirtle();
 			void Attack(Pokemon* target) override;
 		};
 	}
