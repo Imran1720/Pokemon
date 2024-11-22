@@ -56,4 +56,9 @@ namespace N_Pokemon
     string Pokemon::GetPokemonName() { 
         return pokemonName; 
     }
+
+    int Pokemon::GetHealth()
+    {
+        return health;
+    }
 }

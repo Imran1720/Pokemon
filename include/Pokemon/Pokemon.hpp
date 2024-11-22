@@ -26,6 +26,7 @@ namespace N_Pokemon
         bool IsFainted();
         void Heal();
 
+        int GetHealth();
         string GetPokemonName();
 
     };
