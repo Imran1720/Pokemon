@@ -22,6 +22,11 @@ namespace N_Pokemon
 				{
 					Pokemon::Attack(_selectedMove, target);
 					cout << "A successful hit!" << endl;
+
+					if (target->CanApplyEffect())
+					{
+						target->ApplyEffect(StatusEffectType::Paralyzed);
+					}
 				}
 				else
 				{

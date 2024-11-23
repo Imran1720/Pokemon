@@ -1,12 +1,18 @@
 #pragma once
 #include "../../../include/Pokemon/StatusEffects/ParalyzedEffect.hpp"
+#include "../../../Include/Pokemon/StatusEffects/StatusEffectType.hpp"
+
+#include <iostream>
 
 namespace N_Pokemon
 {
 	namespace N_StatusEffects
 	{
+		using namespace std;
+		using namespace N_StatusEffects;
+		using namespace N_Pokemon;
 
-		ParalyzedEffect::ApplyEffect(Pokemon* target)
+		void ParalyzedEffect::ApplyEffect(Pokemon* target)
 		{
 			cout << target->GetPokemonName() << " is Paralyzed! It may not move!" << endl;
 
@@ -37,6 +43,13 @@ namespace N_Pokemon
 
 			cout << target->GetPokemonName() << " shakes off the paralysis momentarily and can move" << endl;
 			return true;
+		}
+
+		void ParalyzedEffect::ClearEffect(Pokemon* target)
+		{
+			cout << target->GetPokemonName << " is no longer paralyzed!" << endl;
+			target->ClearEffect();
+
 		}
 	}
 }

@@ -1,13 +1,17 @@
 #pragma once
 #include "../../include/Pokemon/Move.hpp"
 #include "../Pokemon/PokemonType.hpp"
+#include "../Pokemon/IStatusEffect.hpp"
+#include "../Pokemon/StatusEffects/StatusEffectType.hpp"
 #include <string>
 #include <vector>
-using namespace std;
 
 
 namespace N_Pokemon
 {
+
+    using namespace std;
+    using namespace N_StatusEffects;
 
     class Pokemon
     {
@@ -34,7 +38,12 @@ namespace N_Pokemon
         string GetPokemonName();
         void ReduceAttackPower(int reducedDamage);
         void SelectAndUseMoves(Pokemon* target);
+        IStatusEffect* appliedEffect;
 
+        bool CanAttack();
+        void ApplyEffect(StatusEffectType effectToApply);
+        void ClearEffect();
+        bool CanApplyEffect();
 
     private:
         void PrintAvailabeMoves();

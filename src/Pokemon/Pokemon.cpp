@@ -1,6 +1,7 @@
 #pragma once
 #include "../../include/Pokemon/Pokemon.hpp"
 #include "../../include/Utility/Utility.hpp"
+#include "../../include/Pokemon/StatusEffects/ParalyzedEffect.hpp"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -25,6 +26,7 @@ namespace N_Pokemon
         typeOfPokemon = _type;
         health = _heatlh;
         moves = _pokemonMoves;
+        appliedEffect = nullptr;
     }
 
     Pokemon::Pokemon(const N_Pokemon::Pokemon* _pokemon)
@@ -141,5 +143,42 @@ namespace N_Pokemon
         }
 
         Utility::PlayerWaitResponse();
+    }
+
+
+    bool Pokemon::CanAttack()
+    {
+        if (appliedEffect == nullptr)
+        {
+            return true;
+        }
+
+        else
+            return appliedEffect->TurnEndEffect(this);
+    }
+
+    bool Pokemon::CanApplyEffect()
+    {
+        return appliedEffect == nullptr;
+    }
+
+    void Pokemon::ApplyEffect(StatusEffectType effectToApply)
+    {
+        switch (effectToApply)
+        {
+        case StatusEffectType::Paralyzed:
+            {
+                appliedEffect = new ParalyzedEffect();
+                appliedEffect->ApplyEffect(this);
+                break;
+            }
+        default:
+            appliedEffect = nullptr;
+        }
+    }
+
+    void Pokemon::ClearEffect()
+    {
+        appliedEffect = nullptr;
     }
 }
