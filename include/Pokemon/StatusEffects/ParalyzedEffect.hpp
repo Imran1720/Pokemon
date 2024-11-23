@@ -1,6 +1,8 @@
 #pragma once
 #include "../../../include/Pokemon/IStatusEffect.hpp"
 
+#include <string>
+
 namespace N_Pokemon
 {
 	namespace N_StatusEffects
@@ -15,7 +17,7 @@ namespace N_Pokemon
 		public:
 			void ApplyEffect(Pokemon* target) override;
 
-			string GetEffectName() override;
+			std::string GetEffectName() override;
 
 			bool TurnEndEffect(Pokemon* target) override;
 

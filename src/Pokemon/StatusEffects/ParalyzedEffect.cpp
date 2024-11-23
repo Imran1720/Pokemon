@@ -1,4 +1,5 @@
 #pragma once
+#include "../../../include/Pokemon/Pokemon.hpp"
 #include "../../../include/Pokemon/StatusEffects/ParalyzedEffect.hpp"
 #include "../../../Include/Pokemon/StatusEffects/StatusEffectType.hpp"
 
@@ -47,7 +48,7 @@ namespace N_Pokemon
 
 		void ParalyzedEffect::ClearEffect(Pokemon* target)
 		{
-			cout << target->GetPokemonName << " is no longer paralyzed!" << endl;
+			cout << target->GetPokemonName() << " is no longer paralyzed!" << endl;
 			target->ClearEffect();
 
 		}

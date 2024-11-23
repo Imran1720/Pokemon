@@ -1,8 +1,8 @@
 #pragma once
 #include "../../include/Pokemon/Move.hpp"
 #include "../Pokemon/PokemonType.hpp"
-#include "../Pokemon/IStatusEffect.hpp"
-#include "../Pokemon/StatusEffects/StatusEffectType.hpp"
+#include "../../include/Pokemon/IStatusEffect.hpp"
+#include "../../include/Pokemon/StatusEffects/StatusEffectType.hpp"
 #include <string>
 #include <vector>
 
@@ -11,7 +11,7 @@ namespace N_Pokemon
 {
 
     using namespace std;
-    using namespace N_StatusEffects;
+    using namespace N_Pokemon::N_StatusEffects;
 
     class Pokemon
     {
