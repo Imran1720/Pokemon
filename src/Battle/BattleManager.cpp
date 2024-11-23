@@ -14,12 +14,16 @@ namespace N_Battle
     using namespace N_Character::N_Player;
     using namespace N_Pokemon;
 
+    //WHY?
+    BattleState BattleManager::battleState;
+
     void BattleManager::StartBattle(Player* _player, Pokemon* _wildPokemon)
     {
         battleState.playerPokemon = _player->pokemonChoosen;
         battleState.wildPokemon = _wildPokemon;
         battleState.playerTurn = true;
         battleState.battleOngoing = true;
+
 
 	    cout << "A wild " << _wildPokemon->GetPokemonName() << " Appeared!" << endl;
 	    BattleManager::Battle();
@@ -39,10 +43,8 @@ namespace N_Battle
                 battleState.wildPokemon->SelectAndUseMoves(battleState.playerPokemon);
             }
 
-            battleState.playerTurn = !battleState.playerTurn;
             BattleManager::UpdateBattleState();
-            //cout << _playerPokemon.health << " : " << _wildPokemon.health << endl;
-            //cout << (bool)_playerPokemon.IsFainted() << endl;
+            battleState.playerTurn = !battleState.playerTurn;
             Utility::PlayerWaitResponse();
         }
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "../../../include/Pokemon/Pokemons/Pidgey.hpp"
-#include "../../../include/Utility/Utility.hpp"
 #include "../../../include/Battle/BattleManager.hpp"
+#include "../../../include/Utility/Utility.hpp"
 #include <iostream>
 
 namespace N_Pokemon
@@ -24,7 +24,7 @@ namespace N_Pokemon
 				if (rand() % 100 < 20)
 				{
 					cout << "...and blew the opponent away" << endl;
-					//N_Battle::BattleManager::StopBattle();
+					N_Battle::BattleManager::StopBattle();
 					N_Utility::Utility::PlayerWaitResponse();
 				}
 			}
