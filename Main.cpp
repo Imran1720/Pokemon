@@ -12,26 +12,28 @@ using namespace N_Main;
 
 int main()
 {
-    ProfessorOak* professor = new ProfessorOak("Oak");
-    Player* player = new Player();
+    ProfessorOak* oak = new ProfessorOak("Oak");
+    Player* trainer = new Player();
+
+    
 
     //professor oak introduction
-    professor->Oak_Introduction(player);
+    oak->Oak_Introduction(trainer);
 
     //professor oak offering pokemon to player
-    professor->Oak_PokemonOffer(player);
+    oak->Oak_PokemonOffer(trainer);
 
     //Main Quest explaination
-    professor->ExplainMainQuest(player);
+    oak->ExplainMainQuest(trainer);
 
 
-    Game* game = new Game();
+    Game* gameController = new Game();
     //Game Loop starts here
-    game->GameLoop(player);
+    gameController->GameLoop(trainer);
 
-    delete(professor);
-    delete(player);
-    delete(game);
+    delete(oak);
+    delete(trainer);
+    delete(gameController);
 
     return 0;
 }

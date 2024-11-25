@@ -13,20 +13,15 @@ namespace N_Pokemon
 			Move("Thunder Shock",25),Move("Tackle",10)
 			}) {}
 
-		void Pikachu::Attack(Move _selectedMove,Pokemon* target)
+		void Pikachu::Attack(Move _currentMove,Pokemon* _opponentPokemon)
 		{
 
-			if (_selectedMove.name == "Thunder Shock")
+			if (_currentMove.moveName == "Thunder Shock")
 			{
 				if (rand() % 100 < 80)
 				{
-					Pokemon::Attack(_selectedMove, target);
+					Pokemon::Attack(_currentMove, _opponentPokemon);
 					cout << "A successful hit!" << endl;
-
-					if (target->CanApplyEffect())
-					{
-						target->ApplyEffect(StatusEffectType::Paralyzed);
-					}
 				}
 				else
 				{
@@ -35,7 +30,7 @@ namespace N_Pokemon
 			}
 			else
 			{
-				Pokemon::Attack(_selectedMove,target);
+				Pokemon::Attack(_currentMove,_opponentPokemon);
 			}
 		}
 
