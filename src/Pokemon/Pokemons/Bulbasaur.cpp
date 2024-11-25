@@ -13,21 +13,21 @@ namespace N_Pokemon
 			Move("Vine Whip",25),
 			Move("Tackle",10) }) {}
 
-		void Bulbasaur::Attack(Move _selectedMove,Pokemon* target)
+		void Bulbasaur::Attack(Move _currentMove,Pokemon* _opponentPokemon)
 		{
-			Pokemon::Attack(_selectedMove, target);
+			Pokemon::Attack(_currentMove, _opponentPokemon);
 
-			if (_selectedMove.name == "Vine Whip")
+			if (_currentMove.moveName == "Vine Whip")
 			{
 				int secondHitChance = rand() % 2;
 				if (secondHitChance == 1)
 				{
-					Pokemon::Attack(_selectedMove, target);
-					cout << GetPokemonName() << " hits again with a second " << _selectedMove.name << "!" << endl;
+					Pokemon::Attack(_currentMove, _opponentPokemon);
+					cout << GetPokemonName() << " hits again with a second " << _currentMove.moveName << "!" << endl;
 				}
 				else
 				{
-					cout << target->GetPokemonName() << " dodged the second hit!" << endl;
+					cout << _opponentPokemon->GetPokemonName() << " dodged the second hit!" << endl;
 				}
 			}
 		}

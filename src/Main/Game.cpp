@@ -2,7 +2,7 @@
 #pragma once
 #include "../include/Main/Game.hpp"
 #include "..\include\Battle\BattleManager.hpp"
-#include "../include/Battle/WildEncounterManager.hpp"
+#include "../include/Battle/WildPokemonInteractor.hpp"
 #include "../include/Character/Player/Player.hpp"
 #include "../include/Pokemon/Pokemons/Pidgey.hpp"
 #include "../include/Pokemon/Pokemons/Zubat.hpp"
@@ -43,7 +43,7 @@ void Game::GameLoop(Player* _player)
     BattleManager battleManager;
     int adventureChoice;
     bool isGameRunning = true;
-    WildEncounterManager encounterManager;
+    WildPokemonInteractor interactor;
     //wildPokemon = new Pokemon();
 
 
@@ -67,9 +67,9 @@ void Game::GameLoop(Player* _player)
         {
         case 1:
             {
-                wildPokemon = encounterManager.GetRandomPokemonFromGrass(forestGrass);
+                wildPokemon = interactor.GetRandomPokemon(forestGrass);
                 
-                battleManager.StartBattle(_player, wildPokemon);
+                battleManager.BrawlCommence(_player, wildPokemon);
 
                 break;
             }

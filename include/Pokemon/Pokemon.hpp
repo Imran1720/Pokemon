@@ -23,32 +23,35 @@ namespace N_Pokemon
         int attackPower;
 
     public:
+        //variables
         vector<Move> moves;
+        IStatusEffect* appliedEffect;
 
+        //constructors
         Pokemon();
         Pokemon(string _name, PokemonType _type, int _heatlh, vector<Move> _pokemonMoves);
         Pokemon(const Pokemon* _pokemon);
-    
-        virtual void Attack(Move _selectedMove,Pokemon* _target) =0;
+
+        //functions
+        virtual void Attack(Move _currentMove, Pokemon* _opponentPokemon) = 0;
         void TakeDamage(int _damage);
         bool IsFainted();
         void Heal();
 
         int GetHealth();
         string GetPokemonName();
-        void ReduceAttackPower(int reducedDamage);
-        void SelectAndUseMoves(Pokemon* target);
-        IStatusEffect* appliedEffect;
+        void ReduceAttackPower(int _damage);
+        void SelectAndUseMoves(Pokemon* _oppenentPokemon);
 
         bool CanAttack();
-        void ApplyEffect(StatusEffectType effectToApply);
+        void ApplyEffect(StatusEffectType _effectToApply);
         void ClearEffect();
         bool CanApplyEffect();
 
     private:
         void PrintAvailabeMoves();
         int SelectMove();
-        void UseMove(Move selectedMove, Pokemon* target);
+        void UseMove(Move _currentMove, Pokemon* _opponentPokemon);
 
     };
 

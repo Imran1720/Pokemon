@@ -3,12 +3,12 @@
 
 namespace N_Pokemon
 {
-class Pokemon;
+	class Pokemon;
 }
 
 class IStatusEffect
 {
-	public:
+public:
 	virtual void ApplyEffect(N_Pokemon::Pokemon* target) = 0;
 
 	virtual std::string GetEffectName() = 0;

@@ -7,13 +7,13 @@ namespace N_Pokemon
 {
 	struct Move
 	{
-		string name;
-		int power;
+		string moveName;
+		int attackPower;
 
 		Move(const string& _name, int _power)
 		{
-			name = _name;
-			power = _power;
+			moveName = _name;
+			attackPower = _power;
 		}
 	};
 }

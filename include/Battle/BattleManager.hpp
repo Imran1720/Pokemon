@@ -7,13 +7,13 @@ namespace N_Battle
 	class BattleManager
 	{
 		public :
-			void StartBattle(N_Character::N_Player::Player* _player, N_Pokemon::Pokemon* _wildPokemon);
-			static void StopBattle();
+			void BrawlCommence(N_Character::N_Player::Player* _trainer, N_Pokemon::Pokemon* _opponentPokemon);
+			static void EndBrawl();
 
 		private :
 			static BattleState battleState;
-			void Battle();
-			void UpdateBattleState();
-			void HandleBattleOutcome();
+			void Brawl();
+			void UpdateStateOfBrawl();
+			void BrawlOutcome();
 	};
 }
