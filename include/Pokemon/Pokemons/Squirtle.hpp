@@ -5,11 +5,11 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		class Pidgey : public Pokemon
+		class Squirtle : public Pokemon
 		{
 
 		public:
-			Pidgey();
+			Squirtle();
 			void Attack(Move _selectedMove,Pokemon* target) override;
 		};
 	}

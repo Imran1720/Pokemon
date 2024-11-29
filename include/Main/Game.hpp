@@ -5,15 +5,18 @@
 
 namespace N_Main
 {
+	using namespace N_Pokemon;
+	using namespace N_Character::N_Player;
 	class Game
 	{
 		private:
-			N_Pokemon::Grass forestGrass;
+			Grass forestGrass;
+			Pokemon* wildPokemon;
 
 		public:
 			Game();
-
-			void GameLoop(N_Player::Player& _player);
+			~Game();
+			void GameLoop(Player* _player);
 
 		
 	};

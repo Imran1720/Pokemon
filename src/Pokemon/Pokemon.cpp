@@ -1,13 +1,15 @@
 #pragma once
 #include "../../include/Pokemon/Pokemon.hpp"
-
+#include "../../include/Utility/Utility.hpp"
 #include <string>
+#include <vector>
 #include <iostream>
 
 using namespace std;
 
 namespace N_Pokemon
 {
+    using namespace N_Utility;
 
     Pokemon::Pokemon()
     {
@@ -17,29 +19,22 @@ namespace N_Pokemon
         attackPower = 12;
     }
 
-    Pokemon::Pokemon(string _name, N_Pokemon::PokemonType _type, int _heatlh, int _attackPower)
+    Pokemon::Pokemon(string _name, N_Pokemon::PokemonType _type, int _heatlh, vector<Move> _pokemonMoves)
     {
         pokemonName = _name;
         typeOfPokemon = _type;
         health = _heatlh;
-        attackPower = _attackPower;
+        moves = _pokemonMoves;
     }
 
-    Pokemon::Pokemon(const N_Pokemon::Pokemon& _pokemon)
+    Pokemon::Pokemon(const N_Pokemon::Pokemon* _pokemon)
     {
 
-        pokemonName = _pokemon.pokemonName;
-        typeOfPokemon = _pokemon.typeOfPokemon;
-        health = _pokemon.health;
-        attackPower = _pokemon.attackPower;
-    }
-
-    
-    void Pokemon::Attack(N_Pokemon::Pokemon& _target)
-    {
-        int damage = attackPower;
-        cout << pokemonName << " attacks " << _target.pokemonName << " for " << damage << " damage!" << endl;
-        _target.TakeDamage(damage);
+        pokemonName = _pokemon->pokemonName;
+        typeOfPokemon = _pokemon->typeOfPokemon;
+        health = _pokemon->health;
+        attackPower = _pokemon->attackPower;
+        moves = _pokemon->moves;
     }
 
     void Pokemon::TakeDamage(int _damage)
@@ -63,5 +58,88 @@ namespace N_Pokemon
 
     string Pokemon::GetPokemonName() { 
         return pokemonName; 
+    }
+
+    void Pokemon::ReduceAttackPower(int reducedDamage)
+    {
+        attackPower -= reducedDamage;
+        if (attackPower < 0)
+        {
+            attackPower = 0;
+        }
+    }
+
+    int Pokemon::GetHealth()
+    {
+        return health;
+    }
+
+    void Pokemon::Attack(Move _selectedMove,Pokemon* target) 
+    {
+        target->TakeDamage(_selectedMove.power);
+    }
+
+    void Pokemon::SelectAndUseMoves(Pokemon* target)
+    {
+        PrintAvailabeMoves();
+        
+        int choice = SelectMove();
+        Move selectedMove = moves[choice - 1];
+
+        UseMove(selectedMove, target);
+    }
+
+    void Pokemon::PrintAvailabeMoves()
+    {
+        cout << pokemonName << "'s Availabe moves:" << endl;
+
+
+        for (int i = 0; i < moves.size(); i++)
+        {
+            cout << i + 1 << ": " << moves[i].name << " (Power : " << moves[i].power << ")" << endl;
+
+        }
+    }
+
+
+    int Pokemon::SelectMove()
+    {
+        int choice;
+        //Utility::clearInputBuffer();
+        cout << "Choose a move ";
+        cin >> choice;
+
+        while (choice < 1 ||choice> static_cast<int>(moves.size()))
+        {
+            cout << "Invalid Choice!!" << endl;
+            cin >> choice;
+        }
+
+        return choice;
+    }
+
+
+    void Pokemon::UseMove(Move selectedMove, Pokemon* target)
+    {
+        cout << pokemonName << " used "<<selectedMove.name<< "!" << endl;
+        
+        Attack(selectedMove, target);
+
+        Utility::PlayerWaitResponse();
+
+        cout << "..." << endl;
+        Utility::PlayerWaitResponse();
+
+
+        if (target->IsFainted())
+        {
+            cout << target->GetPokemonName() << " fainted!" << endl;
+        }
+        else
+        {
+            cout << target->GetPokemonName() << " has " << target->GetHealth() << " HP left." << endl;
+        }
+
+        Utility::PlayerWaitResponse();
     }
 }

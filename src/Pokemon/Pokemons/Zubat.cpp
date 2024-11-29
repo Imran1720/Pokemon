@@ -1,5 +1,5 @@
 #include "../../../include/Pokemon/Pokemons/Zubat.hpp"
-
+#include "../../../include/Utility/Utility.hpp"
 #include <iostream>
 
 namespace N_Pokemon
@@ -7,12 +7,32 @@ namespace N_Pokemon
 	namespace N_Pokemons
 	{
 		using namespace std;
-		Zubat::Zubat() : Pokemon("Zubat", PokemonType::Poision, 100, 20) {}
+		using namespace N_Utility;
 
-		void Zubat::SuperSonic(Pokemon& target)
+		Zubat::Zubat() : Pokemon("Zubat", PokemonType::Poision, 100, {
+			Move("Super Sonic",25),
+			Move("Tackle",10),
+			Move("Leech Life",10)
+			}) {}
+
+		void Zubat::Attack(Move _selectedMove,Pokemon* target)
 		{
-			cout << pokemonName << " uses Super Sonic on " << target.GetPokemonName() << endl;
-			target.TakeDamage(20);
+			Pokemon::Attack(_selectedMove, target);
+
+			if (_selectedMove.name == "Leech Life")
+			{
+				this->health += _selectedMove.power * 0.5;
+				if (this->health > this->maxHealth)
+				{
+					this->health = this->maxHealth;
+				}
+				cout << "..and regained Health" << endl;
+			}
+
+
+
 		}
+
+		
 	}
 }

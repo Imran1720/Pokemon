@@ -3,19 +3,24 @@
 
 #include <string>
 
-using namespace std;
-
-namespace N_Player
+namespace N_Character
 {
-    class Player
+    namespace N_Player
     {
-        public:
-        string playerName;
-        N_Pokemon::Pokemon pokemonChoosen;
+        using namespace std;
+        using namespace N_Pokemon;
 
-        Player();
-        Player(string p_name, N_Pokemon::Pokemon _pokemonChoosen);
-        Player(const Player& _player);
-        void SelectPokemon(int _choice);
-    };
+
+        class Player
+        {
+        public:
+            string playerName;
+            Pokemon* pokemonChoosen;
+
+            Player();
+            Player(string p_name);
+            Player(const Player& _player);
+            void SelectPokemon(int _choice);
+        };
+    }
 }

@@ -13,9 +13,9 @@ namespace N_Character {
         string name;
 
         ProfessorOak(string _name);
-        void Oak_Introduction(N_Player::Player& _player);
-        void Oak_PokemonOffer(N_Player::Player& _player);
-        void ExplainMainQuest(N_Player::Player& _player);
+        void Oak_Introduction(N_Player::Player* _player);
+        void Oak_PokemonOffer(N_Player::Player* _player);
+        void ExplainMainQuest(N_Player::Player* _player);
 
     };
 
