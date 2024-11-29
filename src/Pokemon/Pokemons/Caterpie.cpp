@@ -14,15 +14,15 @@ namespace N_Pokemon
 			Move("Sticky Web",25),Move("Tackle",10)
 			}) {}
 
-		void Caterpie::Attack(Move _selectedMove,Pokemon* target)
+		void Caterpie::Attack(Move _currentMove,Pokemon* _opponentPokemon)
 		{
-			Pokemon::Attack(_selectedMove, target);
+			Pokemon::Attack(_currentMove, _opponentPokemon);
 
-			if (_selectedMove.name == "Sticky Web")
+			if (_currentMove.moveName == "Sticky Web")
 			{
 				int reducedDamage = 5;
-				target->ReduceAttackPower(reducedDamage);
-				cout << target->GetPokemonName() << "'s next attack will be reduced by " << reducedDamage << " damage!" << endl;
+				_opponentPokemon->ReduceAttackPower(reducedDamage);
+				cout << _opponentPokemon->GetPokemonName() << "'s next attack will be reduced by " << reducedDamage << " damage!" << endl;
 			}
 		}
 

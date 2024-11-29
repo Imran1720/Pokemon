@@ -15,13 +15,13 @@ namespace N_Pokemon
 			Move("Leech Life",10)
 			}) {}
 
-		void Zubat::Attack(Move _selectedMove,Pokemon* target)
+		void Zubat::Attack(Move _currentMove,Pokemon* _opponentPokemon)
 		{
-			Pokemon::Attack(_selectedMove, target);
+			Pokemon::Attack(_currentMove, _opponentPokemon);
 
-			if (_selectedMove.name == "Leech Life")
+			if (_currentMove.moveName == "Leech Life")
 			{
-				this->health += _selectedMove.power * 0.5;
+				this->health += _currentMove.attackPower * 0.5;
 				if (this->health > this->maxHealth)
 				{
 					this->health = this->maxHealth;

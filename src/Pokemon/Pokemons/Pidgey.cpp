@@ -15,16 +15,16 @@ namespace N_Pokemon
 			Move("Wind Attack",25),Move("Tackle",10),Move("Gust",5)
 			}) {}
 
-		void Pidgey::Attack(Move _selectedMove,Pokemon* target)
+		void Pidgey::Attack(Move _currentMove,Pokemon* _opponentPokemon)
 		{
-			Pokemon::Attack(_selectedMove, target);
+			Pokemon::Attack(_currentMove, _opponentPokemon);
 
-			if (_selectedMove.name == "Gust")
+			if (_currentMove.moveName == "Gust")
 			{
 				if (rand() % 100 < 20)
 				{
 					cout << "...and blew the opponent away" << endl;
-					N_Battle::BattleManager::StopBattle();
+					N_Battle::BattleManager::EndBrawl();
 					N_Utility::Utility::PlayerWaitResponse();
 				}
 			}

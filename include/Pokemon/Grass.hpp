@@ -13,6 +13,6 @@ namespace N_Pokemon
 	{
 		string typeOfEnvironment;
 		vector<Pokemon*> wildPokemonList;
-		int rateOfEncounter;
+		int EncounterProbabilty;
 	};
 }

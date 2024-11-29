@@ -1,4 +1,4 @@
-#include "../include/Battle/WildEncounterManager.hpp"
+#include "../include/Battle/WildPokemonInteractor.hpp"
 #include "../include/Pokemon/Grass.hpp"
 #include "..\include\Pokemon\Pokemon.hpp"
 
@@ -10,12 +10,12 @@ using namespace std;
 namespace N_Battle
 {
 
-	WildEncounterManager::WildEncounterManager()
+	WildPokemonInteractor::WildPokemonInteractor()
 	{
 		srand(time(0));
 	}
 
-	N_Pokemon::Pokemon* WildEncounterManager::GetRandomPokemonFromGrass(const N_Pokemon::Grass& _forestGrass)
+	N_Pokemon::Pokemon* WildPokemonInteractor::GetRandomPokemon(const N_Pokemon::Grass& _forestGrass)
 	{
 		int randomIndex = rand() % _forestGrass.wildPokemonList.size();
 

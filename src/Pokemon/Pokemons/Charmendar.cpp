@@ -13,11 +13,11 @@ namespace N_Pokemon
 			Move("Flame Burst",20),Move("Tackle",10),Move("Blazing Charge",35)
 			}) {}
 
-		void Charmendar::Attack(Move _selectedMove,Pokemon* target)
+		void Charmendar::Attack(Move _currentMove,Pokemon* _opponentPokemon)
 		{
-			Pokemon::Attack(_selectedMove, target);
+			Pokemon::Attack(_currentMove, _opponentPokemon);
 
-			if (_selectedMove.name == "Blazing Charge")
+			if (_currentMove.moveName == "Blazing Charge")
 			{
 				this->TakeDamage(10);
 

@@ -15,17 +15,17 @@ namespace N_Pokemon
 			Move("Rapid Spin",5)
 			}) {}
 
-		void Squirtle::Attack(Move _selectedMove, Pokemon* target)
+		void Squirtle::Attack(Move _currentMove, Pokemon* _opponentPokemon)
 		{
-			Pokemon::Attack(_selectedMove, target);
+			Pokemon::Attack(_currentMove, _opponentPokemon);
 
-			if (_selectedMove.name == "Rapid Spin")
+			if (_currentMove.moveName == "Rapid Spin")
 			{
 				int hits = (rand() % 4) + 2;
 
 				for (int i = 0; i < hits; i++)
 				{
-					Pokemon::Attack(_selectedMove, target);
+					Pokemon::Attack(_currentMove, _opponentPokemon);
 				}
 
 				cout << "...and hit " << hits << " times!" << endl;

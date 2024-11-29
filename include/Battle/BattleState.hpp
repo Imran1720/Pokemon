@@ -6,9 +6,9 @@ namespace N_Battle {
 
 	struct BattleState
 	{
-		N_Pokemon::Pokemon* playerPokemon;
-		N_Pokemon::Pokemon* wildPokemon;
-		bool playerTurn;
-		bool battleOngoing;
+		N_Pokemon::Pokemon* trainerPokemon;
+		N_Pokemon::Pokemon* opponentPokemon;
+		bool trainersTurn;
+		bool brawlEnded;
 	};
 }

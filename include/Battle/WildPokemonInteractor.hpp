@@ -8,11 +8,11 @@ using namespace std;
 
 namespace N_Battle
 {
-	class WildEncounterManager
+	class WildPokemonInteractor
 	{
 		public:
-			WildEncounterManager();
-			N_Pokemon::Pokemon* GetRandomPokemonFromGrass(const N_Pokemon::Grass& grass);
+			WildPokemonInteractor();
+			N_Pokemon::Pokemon* GetRandomPokemon(const N_Pokemon::Grass& grass);
 
 
 	};
