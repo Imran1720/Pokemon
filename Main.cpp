@@ -1,22 +1,18 @@
-#include "ProfessorOak.hpp"
-#include "Utility.hpp"
-#include "Game.hpp"
+#include "..\include\Main\Game.hpp"
+#include "..\include\Character\Player\Player.hpp"
+#include "..\include\Character\ProfessorOak.hpp"
+
 #include <iostream>
 #include <string>
+
 using namespace std;
-
-
+using namespace N_Character;
+using namespace N_Main;
 
 int main()
 {
-    //creating a default pokemon
-    Pokemon playerPokemon("Charmander", PokemonType::Fire, 100);
-
     ProfessorOak professor("Oak");
-
-    //createing default player and assigning default pokemon
-    Player player("Trainer", playerPokemon);
-
+    N_Player::Player player;
 
     //professor oak introduction
     professor.Oak_Introduction(player);
@@ -27,8 +23,9 @@ int main()
     //Main Quest explaination
     professor.ExplainMainQuest(player);
 
+    Game game;
     //Game Loop starts here
-    Game::GameLoop(player);
+    game.GameLoop(player);
 
     return 0;
 }

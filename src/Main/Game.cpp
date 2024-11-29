@@ -1,29 +1,41 @@
-#include "Game.hpp"
-#include "Player.hpp"
-#include "Utility.hpp"
-#include "WildEncounterManager.hpp"
+
+#pragma once
+#include "../include/Main/Game.hpp"
+#include "../include/Character/Player/Player.hpp"
+#include "..\include\Battle\BattleManager.hpp"
+#include "../include/Pokemon/Pokemon.hpp"
+#include "../include/Utility/Utility.hpp"
+#include "../include/Battle/WildEncounterManager.hpp"
+
 #include<iostream>
 
 using namespace std;
+using namespace N_Utility;
+using namespace N_Battle;
+using namespace N_Pokemon;
+
+namespace N_Main
+{ 
 
 Game::Game()
 {
-	forestGrass = {
-		"Forest",
-		{
-			Pokemon("Pidgey",PokemonType::Normal,40),
-			Pokemon("Caterpie",PokemonType::Grass,35),
-			Pokemon("Zubat",PokemonType::Poision,30)
-		},
-		70
-	}
+    forestGrass = {
+        "Forest",
+        {
+            Pokemon("Pidgey",N_Pokemon::PokemonType::Normal,40,8),
+            Pokemon("Caterpie",N_Pokemon::PokemonType::Grass,35,9),
+            Pokemon("Zubat",N_Pokemon::PokemonType::Poision,30,11)
+        },
+        70
+    };
 }
 
-void Game::GameLoop(Player& _player)
+void Game::GameLoop(N_Player::Player& _player)
 {
-	
+    BattleManager battleManager;
     int adventureChoice;
     bool isGameRunning = true;
+
 
     while (isGameRunning)
     {
@@ -43,12 +55,23 @@ void Game::GameLoop(Player& _player)
 
         switch (adventureChoice)
         {
-        case 1: WildEncounterManager encounterManager;
-            Pokemon encounteredPokemon = encounterManager.GetRandomPokemonFromGrass(forestGrass);
-            cout << "A wild " << encounteredPokemon << " appeared!!" << endl;
-            break;
-        case 2: cout << "\nYou head to the PokeCenter, but Nurse Joy is out on a coffee break. Guess your Pokemon will have to tough it out for now!" << endl;
-            break;
+        case 1:
+            {
+                WildEncounterManager encounterManager;
+                Pokemon encounteredPokemon = encounterManager.GetRandomPokemonFromGrass(forestGrass);
+                
+                battleManager.StartBattle(_player, encounteredPokemon);
+
+                break;
+            }
+        case 2:
+            {
+                cout << "You head to Pokecenter" << endl;
+                _player.pokemonChoosen.Heal();
+                cout << _player.pokemonChoosen.pokemonName << "'s health is fully restored" << endl;
+                break;
+                break;
+            }
         case 3: cout << "\nYou march up to the Gym, but it's closed for renovations. Seems like even Gym Leaders need a break!" << endl;
             break;
         case 4: cout << "\nYou boldly step towards the Pokemon League... but the gatekeeper laughs and says, 'Maybe next time, champ!" << endl;
@@ -69,4 +92,5 @@ void Game::GameLoop(Player& _player)
         }
     }
     cout << "Thanks for playing the game " << _player.playerName << endl;
+}
 }
