@@ -4,6 +4,9 @@ In this text-based Pokémon adventure game, you start your journey with Professo
 ### 🕹️ Gameplay
 https://github.com/user-attachments/assets/556e0ebf-af39-4146-a0a6-59c11d6f167e
 
+### ScreenShots:
+![image alt](https://github.com/Imran1720/Pokemon/blob/2a28cd753a76366a6640370d918d0eb59931308e/Attachments/Pokemon%20Screenshot%20-5.png)
+
 ### ✨ Features
 <ol>
 <li><b> Text-based console game inspired by Pokémon.</b></li>
@@ -47,9 +50,6 @@ https://github.com/user-attachments/assets/556e0ebf-af39-4146-a0a6-59c11d6f167e
   <li> <b>Descriptive outputs</b> for battles, healing, and events.</li>
   <li> <b>Clear feedback</b> for each player action.</li>
 </ul>
-
-### ScreenShots:
-![image alt](https://github.com/Imran1720/Pokemon/blob/2a28cd753a76366a6640370d918d0eb59931308e/Attachments/Pokemon%20Screenshot%20-5.png)
 
 ## How to Play:
 <ol>
