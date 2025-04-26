@@ -47,9 +47,6 @@ In this text-based Pokémon adventure game, you start your journey with Professo
 
 ### ScreenShots:
 ![image alt](https://github.com/Imran1720/Pokemon/blob/2a28cd753a76366a6640370d918d0eb59931308e/Attachments/Pokemon%20Screenshot%20-5.png)
-![image alt](https://github.com/Imran1720/Pokemon/blob/414aa19d7561107fb1d39c3e2cf86acc08de5883/Attachments/Pokemon%20Screenshot%20-2.png)
-![image alt](https://github.com/Imran1720/Pokemon/blob/414aa19d7561107fb1d39c3e2cf86acc08de5883/Attachments/Pokemon%20Screenshot%20-3.png)
-![image alt](https://github.com/Imran1720/Pokemon/blob/414aa19d7561107fb1d39c3e2cf86acc08de5883/Attachments/Pokemon%20Screenshot%20-4.png)
 
 ## How to Play:
 <ol>
