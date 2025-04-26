@@ -51,8 +51,8 @@ In this text-based Pokémon adventure game, you start your journey with Professo
 ## How to Play:
 <ol>
   <li> <b>Clone or Download</b> this repository.</li>
-  <li> <b>Open Terminal</b> and navigate to the project folder.</li>
-  <li> <b>Run the bash script</b> to compile and play:</li>
+  <li> <b>Extract the file</b> and open to the project folder.</li>
+  <li> <b>Open pokemon.exe</b> to play:</li>
   <li> <b>Follow the prompts</b> in the console:
     <ul>
       <li>Enter your name.</li>
