@@ -54,7 +54,6 @@ In this text-based Pokémon adventure game, you start your journey with Professo
   ![Image](https://github.com/user-attachments/assets/ca746beb-3c44-44a6-a73a-12fb78d5f994)
 
     <li> <b>Extract the file</b> and open to the project folder.</li>
-    ![Image](https://github.com/Imran1720/Pokemon/blob/c364176623c7148f613af45d999e27340d90bff7/Attachments/Extract.gif)
     
   <li> <b>Open pokemon.exe</b> to play:</li>
   <li> <b>Follow the prompts</b> in the console:
