@@ -82,12 +82,23 @@ namespace N_Pokemon
         _opponentPokemon->TakeDamage(_currentMove.attackPower);
     }
 
-    void Pokemon::SelectAndUseMoves(Pokemon* _opponentPokemon)
+    void Pokemon::SelectAndUseMoves(Pokemon* _opponentPokemon, bool trainers_turn)
     {
-        PrintAvailabeMoves();
+        int choice = 0;
+        Move selectedMove = moves[0];
+        if (trainers_turn)
+        {
+            PrintAvailabeMoves();
 
-        int choice = SelectMove();
-        Move selectedMove = moves[choice - 1];
+            choice = SelectMove();
+            selectedMove = moves[choice - 1];
+        }
+        else
+        {
+            srand(time(0));
+            choice = rand() % moves.size();
+            selectedMove = moves[choice];
+        }
 
         UseMove(selectedMove, _opponentPokemon);
     }

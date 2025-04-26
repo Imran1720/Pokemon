@@ -14,7 +14,6 @@ namespace N_Battle
     using namespace N_Character::N_Player;
     using namespace N_Pokemon;
 
-    //WHY?
     BattleState BattleManager::battleState;
 
     void BattleManager::BrawlCommence(Player* _trainer, Pokemon* _opponentPokemon)
@@ -36,11 +35,11 @@ namespace N_Battle
         {
             if (battleState.trainersTurn)
             {
-                battleState.trainerPokemon->SelectAndUseMoves(battleState.opponentPokemon);
+                battleState.trainerPokemon->SelectAndUseMoves(battleState.opponentPokemon,battleState.trainersTurn);
             }
             else
             {
-                battleState.opponentPokemon->SelectAndUseMoves(battleState.trainerPokemon);
+                battleState.opponentPokemon->SelectAndUseMoves(battleState.trainerPokemon, battleState.trainersTurn);
             }
 
             BattleManager::UpdateStateOfBrawl();
@@ -77,6 +76,8 @@ namespace N_Battle
             Utility::PlayerWaitResponse();
             cout << "Game Over!" << endl;
         }
+
+        battleState.opponentPokemon->Heal();
 
     }
 
