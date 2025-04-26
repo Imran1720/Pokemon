@@ -7,8 +7,6 @@ namespace N_Pokemon
 {
 	namespace N_StatusEffects
 	{
-		using namespace N_Pokemon;
-
 		class ParalyzedEffect : public IStatusEffect
 		{
 		private :

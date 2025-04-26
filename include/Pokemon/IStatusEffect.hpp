@@ -1,11 +1,12 @@
 #pragma once
+//#include ""
 #include <string>
-
+//
 namespace N_Pokemon
 {
 	class Pokemon;
 }
-
+//batch file
 class IStatusEffect
 {
 public:
