@@ -4,6 +4,8 @@
 #include "../../include/Pokemon/IStatusEffect.hpp"
 #include "../../include/Pokemon/StatusEffects/StatusEffectType.hpp"
 #include <string>
+#include <random>
+#include <ctime>
 #include <vector>
 
 
@@ -41,7 +43,7 @@ namespace N_Pokemon
         int GetHealth();
         string GetPokemonName();
         void ReduceAttackPower(int _damage);
-        void SelectAndUseMoves(Pokemon* _oppenentPokemon);
+        void SelectAndUseMoves(Pokemon* _oppenentPokemon,bool trainers_turn);
 
         bool CanAttack();
         void ApplyEffect(StatusEffectType _effectToApply);
