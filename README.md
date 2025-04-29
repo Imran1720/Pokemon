@@ -2,7 +2,6 @@
 In this text-based Pokémon adventure game, you start your journey with Professor Oak, choose your starter Pokémon (Charmander, Bulbasaur, or Squirtle), and set out on an adventure. You can battle wild Pokémon, heal at Pokémon Centers, attempt to challenge gyms (currently closed), or aim for the Pokémon League (locked for now). The game runs in a simple console interface with menu-driven choices and random encounters.
 
 ### 🕹️ Gameplay
-https://github.com/user-attachments/assets/556e0ebf-af39-4146-a0a6-59c11d6f167e
 
 ### ScreenShots:
 ![image alt](https://github.com/Imran1720/Pokemon/blob/2a28cd753a76366a6640370d918d0eb59931308e/Attachments/Pokemon%20Screenshot%20-5.png)
